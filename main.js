@@ -25,6 +25,8 @@ if (accion == "exp") {
 
     };
 
+    alert("Los datos se sumaron a tu experimento en curso" )
+
 } else {
     alert("Si buscás otra acción, navegá el sitio")
 };
