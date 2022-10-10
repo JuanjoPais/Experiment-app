@@ -45,11 +45,38 @@ select{
 
 .fichaExp{
     width: 80%;
-    height: 100%;
-    border: 5px black, solid;
+    height: 80%;
+    border: 5px black solid;
     background-color: dimgrey;
     margin: 30px;
     
+    
+}
+
+.bodyForm{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer{
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-content: center;
+    font-size: large;
+    margin-top: auto;
+    background-color: black;
+}
+
+.textoFooter{
+    align-self: center;
+
+}
+
+.divNuevoReactivo{
+    display: flex;
+    flex-direction: column;
     
 }
 
