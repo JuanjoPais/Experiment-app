@@ -60,6 +60,8 @@ botonNuevoExp.addEventListener("click", crearExperimento);
 
 
 
+
+
 //defino un funcion para quitar los experimentos que vayan terminando
 
 const quitarExpes = () => {
@@ -106,7 +108,7 @@ const mostrarSumarReactivo = () => {
     divNuevoReactivo.classList.add("divNuevoReactivo");
 
     divNuevoReactivo.innerHTML = `
-          <form>
+          <form id="formReactivoNuevo" action="">
           <input class ="m-2" type="text" placeholder="Reactivo"> 
           <input class ="m-2" type="text" placeholder="Marca y número de lote"> 
           <input class ="m-2" type="text" placeholder="Cantidad a utlizar"> 
@@ -118,6 +120,42 @@ const mostrarSumarReactivo = () => {
 }
 
 nuevoReactivo.addEventListener("click", mostrarSumarReactivo);
+
+const listadoReactivosComplementarios = [];
+
+
+class ReactivosComplementarios {
+    constructor(reactivo, marcaYLote, cantidad) {
+        this.reactivo = reactivo;
+        this.marcaYLote = marcaYLote;
+        this.cantidad = cantidad;        
+    }
+}
+
+const crearReactivoComplementario = () => {
+    let nombre = document.getElementById("reactivo").value;
+    let apellido = document.getElementById("marcaYLote").value;
+    let nombreUsuario = document.getElementById("cantidad").value;
+    
+
+    const nuevoReactivo = new ReactivosComplementarios(reactivo.toLowerCase(), marcaYLote.toLowerCase(), cantidad);
+
+    listadoReactivosComplementarios.push(nuevoReactivo);  
+
+    return listadoReactivosComplementarios;
+}
+
+let formCargarReactivoComplementario = document.getElementById("formReactivoNuevo");
+
+formCargarReactivoComplementario.addEventListener("click", (e) =>{
+    e.preventDefault()
+});
+
+const botonNuevoReactivo = document.getElementById("botonIncluirReactivo");
+
+botonNuevoReactivo.addEventListener("click", crearReactivoComplementario);
+
+//VER ESTE ERROR DE ARRIBA
 
 //hago preventDefault en los formularios
 
