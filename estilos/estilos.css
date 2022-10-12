@@ -46,9 +46,11 @@ select{
 .fichaExp{
     width: 80%;
     height: 80%;
-    border: 5px black solid;
+    border: 10px black solid;
     background-color: dimgrey;
     margin: 30px;
+    border-radius: 10px;
+    
     
     
 }
