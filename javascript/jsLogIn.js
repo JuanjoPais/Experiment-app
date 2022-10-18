@@ -1,4 +1,4 @@
-const listadoUsuarios = [];
+
 
 let formUsuario = document.getElementById("botonNuevoUsuario");
 
@@ -21,12 +21,16 @@ const crearUsuario = () => {
     const nuevoUsuario = new Usuarios(nombre.toLowerCase(), apellido.toLowerCase(), nombreUsuario.toLowerCase(), constrasenia.toLowerCase());
 
     listadoUsuarios.push(nuevoUsuario);
+    //mandar a storage
     return listadoUsuarios;
 }
 
 formUsuario.addEventListener("click", (e)=>{
     e.preventDefault()
     crearUsuario()
+
 });
+
+//hacer función para inicio de sesion, que tome el ususario y la clave desde el storage. Y que habilite la carga de expnuevo.
 
 

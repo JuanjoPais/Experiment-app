@@ -58,39 +58,31 @@
           <option value="Ecología">Ecología</option>
         </select>
 
+        <input id="usuario" type="text" class="form-control m-4 bd-highlight d-inline-block border border-dark"
+          placeholder="Ingresá tu nombre de usuario">
+
 
         <div id="objetivosExp" class="form-floating m-4 bd-highlight border border-dark">
-          <textarea class="form-control" placeholder="Objetivos del experimento" id="floatingTextarea"
+          <textarea class="form-control" placeholder="Objetivos del experimento" id="idDescripcion"
             style="height: 100px"></textarea>
           <label for="floatingTextarea">Descripción</label>
         </div>
+    
+        <div id="divFechas" class="d-flex flex-row justify-content-evenly align-items-end mb-2">
+          <div class="d-flex flex-column align-items-center"> 
+            <p >Fecha de inicio</p>
+            <input type="date" id="fechaInicio">                   
+          </div>
 
-        <select id="diasExp" class="form-select m-4 bd-highlight border border-dark" aria-label="Default select">
-          <option selected="">Seleccioná la cantidad de días de duración</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12 ">12</option>
-          <option value="13 ">13</option>
-          <option value="14 ">14</option>
-          <option value="15 ">15</option>
-          <option value="16 ">16</option>
-          <option value="17 ">17</option>
-          <option value="18 ">18</option>
-          <option value="19 ">19</option>
-          <option value="20 ">20</option>
-          <option value="21 ">21</option>
+          <div class="d-flex flex-column align-items-center"> 
+            <p >Fecha de finalizacion</p>
+            <input type="date" id="fechaFin">                 
+          </div>
+        </div>
+       
 
-        </select>
-
+       
+        
 
         <input id="consumoMedioCultivo" type="number"
           class="form-control m-4 bd-highlight d-inline-block border border-dark"
@@ -137,7 +129,7 @@
     <p class="textoFooter">LabApp 2022</p>
   </footer>
 
-
+  <script src="../javascript/main.js"></script>
   <script src="../javascript/jsNuevoEXP.js"></script>
 </body>
 

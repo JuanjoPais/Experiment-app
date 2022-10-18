@@ -1,6 +1,6 @@
 // defino 
 
-const equipos = ["tissue", "stem", "eco"];
+const equipos = ["Tissue", "Stem cells", "Ecología"];
 
 const expesCreados = [];
 const listadoReactivosComplementarios = [];
@@ -15,6 +15,9 @@ let colorElegido = document.getElementById("colorInput");
 
 let fichaExp = document.getElementById("fichaExp");
 
+let fechaInicial =  new Date (document.getElementById("fechaInicio").value).getTime();
+
+let fechaFinal = new Date (document.getElementById("fechaFin").value);
 
 
 
@@ -24,11 +27,16 @@ let fichaExp = document.getElementById("fichaExp");
 
 
 class Experimento {
-    constructor(nombreExp, equipo, duracion, consumoMedioCultivo) {
+    constructor(nombreExp, equipo, usuario, descripcion, fechaInicio, fechaFin, consumoMedioCultivo, color, reactivosExtra) {
         this.nombreExp = nombreExp;
         this.equipo = equipo;
-        this.duracion = duracion;
+        this.usuario = usuario;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
         this.consumoMedioCultivo = consumoMedioCultivo;
+        this.color = color;
+        this.reactivosExtra = reactivosExtra;
     }
     restarMedioCultivo() {
         stockMedioCultivoMl -= this.consumoMedioCultivo;
@@ -40,10 +48,15 @@ class Experimento {
 const crearExperimento = () => {
     let nombreExp = document.getElementById("nombreExp").value;
     let seleccionEquipo = document.getElementById("equipoExp").value;
-    let seleccionDuracion = document.getElementById("diasExp").value;
+    let seleccionUsuario = document.getElementById("usuario").value;
+    let descripcion = document.getElementById("idDescripcion").value;
+    let seleccionInicio = document.getElementById("fechaInicio").value;
+    let seleccionFin = document.getElementById("fechaFin").value;
     let seleccionConsumoMedioCultivo = parseFloat(document.getElementById("consumoMedioCultivo").value);
+    let seleccionColor = document.getElementById("colorInput").value;
+    let seleccionReactivosExtra = listadoReactivosComplementarios;
 
-    const experimento = new Experimento(nombreExp, seleccionEquipo, seleccionDuracion, seleccionConsumoMedioCultivo);
+    const experimento = new Experimento(nombreExp, seleccionEquipo, seleccionUsuario, descripcion, seleccionInicio, seleccionFin, seleccionConsumoMedioCultivo, seleccionColor, seleccionReactivosExtra);
 
     experimento.restarMedioCultivo();
 
@@ -64,27 +77,48 @@ class ReactivosComplementarios {
     }
 }
 
-
-
-
-
-
+// Validacion de formulario y cargar de datos
 
 botonNuevoExp.addEventListener("click", (e)=>{
    e.preventDefault();
+
+   //validaciones y carga de formulario
+
+   if (document.getElementById("nombreExp").value == ""){
+    document.getElementById("nombreExp").style.backgroundColor = "#A74444";
+    return
+   }
+   if(equipos.includes(document.getElementById("equipoExp").value) == false){
+    document.getElementById("equipoExp").style.backgroundColor = "#A74444";
+    return
+   }
+
+   //validar el usuario viendo si inició sesión
+
+   if (document.getElementById("idDescripcion").value == ""){
+    document.getElementById("idDescripcion").style.backgroundColor = "#A74444";
+    return
+   }
+
+   if ((document.getElementById("fechaInicio").value <= document.getElementById("fechaFin").value) == false){
+    document.getElementById("divFechas").style.backgroundColor = "#A74444"   
+    return ;
+    }
+   
+
+   //mandar a storage
    crearExperimento();
+
+
 });
 
 
 
 
 
-//defino un funcion para quitar los experimentos que vayan terminando
 
-const quitarExpes = () => {
-    expesCreados.pop();
-    return expesCreados;
-};
+
+
 
 //creo un div con un reactivo extra
 
