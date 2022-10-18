@@ -4,6 +4,8 @@
 }
 
 
+
+
 body{
     background-image: url(../images/fondoBlanco.jpg);
     background-size: cover; 
@@ -48,7 +50,7 @@ select{
     height: 80%;
     border: 10px black solid;
     background-color: dimgrey;
-    margin: 30px;
+    margin: auto;
     border-radius: 10px;
     
     
@@ -78,7 +80,8 @@ footer{
 
 .divNuevoReactivo{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+   
     
 }
 
@@ -87,6 +90,9 @@ footer{
     justify-items: center;
     justify-self: center;
 }
+
+
+
 
 
 

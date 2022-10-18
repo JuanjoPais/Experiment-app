@@ -23,6 +23,8 @@ let fechaFinal = new Date (document.getElementById("fechaFin").value);
 
 
 
+
+
 // armo el constructor de objetos
 
 
@@ -101,15 +103,23 @@ botonNuevoExp.addEventListener("click", (e)=>{
    }
 
    if ((document.getElementById("fechaInicio").value <= document.getElementById("fechaFin").value) == false){
-    document.getElementById("divFechas").style.backgroundColor = "#A74444"   
+    document.getElementById("divFechas").style.backgroundColor = "#A74444";   
     return ;
-    }
-   
+    }      
+      
+    let modal= document.getElementById("modalMedioCultivo")
+
+    if (document.getElementById("consumoMedioCultivo").value > stockMedioCultivoMl){
+        modal.showModal();
+        document.getElementById("cerrarModal").addEventListener("click", (e)=>{
+        e.preventDefault();
+        modal.close();
+       })
+        return
+    }  
 
    //mandar a storage
    crearExperimento();
-
-
 });
 
 
@@ -132,10 +142,10 @@ const mostrarSumarReactivo = () => {
 
     divNuevoReactivo.innerHTML = `
           
-          <input id="reactivo" class ="m-2" type="text" placeholder="Reactivo"> 
-          <input id="marcaYLote" class ="m-2" type="text" placeholder="Marca y número de lote"> 
-          <input id="cantidad" class ="m-2" type="text" placeholder="Cantidad a utlizar"> 
-          <button  id="botonIncluirReactivo" class ="m-2">Incluir Reactivo</button>
+          <input id="reactivo" class ="form-control m-1 border border-dark" type="text" placeholder="Reactivo"> 
+          <input id="marcaYLote" class ="form-control m-1 border border-dark" type="text" type="text" placeholder="Marca y número de lote"> 
+          <input id="cantidad" class ="form-control m-1 border border-dark" type="text" type="text" placeholder="Cantidad a utlizar"> 
+          <button  id="botonIncluirReactivo" class ="m-1 btn btn-dark">Incluir Reactivo</button>
           `;
 
     document.getElementById("nuevoReactivo").append(divNuevoReactivo);
