@@ -20,9 +20,11 @@ let fechaInicial =  new Date (document.getElementById("fechaInicio").value).getT
 let fechaFinal = new Date (document.getElementById("fechaFin").value);
 
 
-localStorage.setItem("stock medio cultivo", JSON.stringify(stockMedioCultivoMl)); // ver error
+let stockActualizado = localStorage.setItem("stock medio cultivo", JSON.stringify(stockMedioCultivoMl)); // ver error
 
-let traigoStock =  JSON.parse(localStorage.getItem("stock medio cultivo"));// ver error
+
+
+let stock = JSON.parse(localStorage.getItem("stock medio cultivo"));// ver error
 
 
 // armo el constructor de objetos
@@ -41,10 +43,12 @@ class Experimento {
         this.reactivosExtra = reactivosExtra;
     }
     restarMedioCultivo() {
-      traigoStock -= this.consumoMedioCultivo; // ver error
-        alert(`Se actualizó el stock del medio de cultivo. Ahora quedan ${traigoStock} ml.`);
+      stock = stock - this.consumoMedioCultivo; 
+        alert(`Se actualizó el stock del medio de cultivo. Ahora quedan ${stock} ml.`);
 
-        return traigoStock;
+        localStorage.setItem("stock medio cultivo", JSON.stringify(stock))
+
+        return stock;
     }
 }
 console.log(JSON.parse(localStorage.getItem("stock medio cultivo")))
@@ -66,11 +70,21 @@ const crearExperimento = () => {
 
     expesCreados.push(experimento);
 
-    if (stockMedioCultivoMl < 10) {
-    alert(`Reponer medio de cultivo. Sólo quedan ${stockMedioCultivoMl} ml.`);
+    if (stock < 10) {
+    alert(`Reponer medio de cultivo. Sólo quedan ${stock} ml.`);
     };
     
     localStorage.setItem(`${document.getElementById("nombreExp").value}`, JSON.stringify(experimento));
+
+    //cargarFicha();
+
+    document.getElementById("divTitulo").innerHTML= nombreExp;
+    document.getElementById("divEquipo").innerHTML= seleccionEquipo;
+    document.getElementById("divUsuario").innerHTML= seleccionUsuario;
+    document.getElementById("divDescripcion").innerHTML= descripcion;
+    document.getElementById("divInicio").innerHTML= seleccionInicio;
+    document.getElementById("divFinal").innerHTML= seleccionFin;
+    document.getElementById("divConsumo").innerHTML= seleccionConsumoMedioCultivo;
 
     return experimento;
 }
@@ -113,7 +127,7 @@ botonNuevoExp.addEventListener("click", (e)=>{
       
     let modal= document.getElementById("modalMedioCultivo")
 
-    if (document.getElementById("consumoMedioCultivo").value > stockMedioCultivoMl){
+    if (document.getElementById("consumoMedioCultivo").value > stock){
         modal.showModal();
         document.getElementById("cerrarModal").addEventListener("click", (e)=>{
         e.preventDefault();
@@ -125,26 +139,15 @@ botonNuevoExp.addEventListener("click", (e)=>{
     
    //mandar a storage
    crearExperimento();
+   cargarFicha();
    
 });
 
-
-
-
-
-
-
-
-
 //creo un div con un reactivo extra
-
-
 
 const mostrarSumarReactivo = () => {
 
-    let divNuevoReactivo = document.createElement("div");
-
-   
+    let divNuevoReactivo = document.createElement("div");   
 
     divNuevoReactivo.innerHTML = `
           
@@ -186,6 +189,8 @@ nuevoReactivo.addEventListener("click", mostrarSumarReactivo);
 colorElegido.addEventListener("input", ()=>{
     fichaExp.style.borderColor = colorElegido.value
 });
+
+// armo funcion de ficha del expe
 
 
 

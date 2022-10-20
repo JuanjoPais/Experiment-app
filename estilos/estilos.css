@@ -11,16 +11,24 @@ body{
     background-size: cover; 
 
     display: grid;
+    
    
 }
 
 
 
-main{  display: grid;
-    justify-items: start;
+main{
+    
+    display: grid;
+    justify-items: auto;
         
-    align-items: left;
+    align-items: center;
     grid-template-columns: 50% 50%;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+
+  
    
 }
 
@@ -45,17 +53,79 @@ select{
     width: 150px;
 }
 
+.divTitulo{
+    border: 1px, black, solid;
+    grid-area: titulo;
+    align-self: center;
+    text-align: center;
+}
+.divEquipo{
+    border: 1px, black, solid;
+    grid-area: equipo;
+    align-self: center;
+    text-align: center;
+}
+.divUsuario{
+    border: 1px, black, solid;
+    grid-area: usuario;
+    align-self: center;
+    text-align: center;
+}
+.divDescripcion{
+    border: 1px, black, solid;
+    grid-area: descripcion;
+    align-self: center;
+    text-align: center;
+}
+.divInicio{
+    grid-area: inicio;
+    align-self: center;
+    text-align: center;
+}
+.divFinal{
+    grid-area: final;
+    align-self: center;
+    text-align: center;
+}
+.divConsumo{
+    grid-area: consumo;
+    align-self: center;
+    text-align: center;
+}
+.divReactivosExtra{
+    grid-area: extra;
+    align-self: center;
+    text-align: center;
+}
+
+
 .fichaExp{
     width: 80%;
     height: 80%;
-    border: 10px black solid;
+    border: 7px black solid;
     background-color: dimgrey;
     margin: auto;
     border-radius: 10px;
-    
-    
-    
+    font-size: xx-large;
+
 }
+
+.areas{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "titulo titulo titulo"
+    "equipo . usuario"
+    "descripcion descripcion descripcion"
+    "inicio . final"
+    "consumo consumo consumo"
+    "extra extra extra";    ;  
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    gap: 5px;
+   
+}    
 
 .bodyForm{
     display: flex;
@@ -64,17 +134,22 @@ select{
 }
 
 footer{
-    display: flex;
+    display: block;
     color: white;
-    justify-content: center;
-    align-content: center;
+    
+    text-align: center;
+    align-items: center;
     font-size: large;
-    margin-top: auto;
+    height: 25px;
+    width: 100%;
+   
+    bottom: 0;
     background-color: black;
 }
 
 .textoFooter{
-    align-self: center;
+    align-items: center;
+    margin-top: auto;
 
 }
 
