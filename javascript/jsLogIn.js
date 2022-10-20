@@ -22,6 +22,8 @@ const crearUsuario = () => {
 
     listadoUsuarios.push(nuevoUsuario);
     //mandar a storage
+    
+    
     return listadoUsuarios;
 }
 

@@ -20,9 +20,9 @@ let fechaInicial =  new Date (document.getElementById("fechaInicio").value).getT
 let fechaFinal = new Date (document.getElementById("fechaFin").value);
 
 
+localStorage.setItem("stock medio cultivo", JSON.stringify(stockMedioCultivoMl)); // ver error
 
-
-
+let traigoStock =  JSON.parse(localStorage.getItem("stock medio cultivo"));// ver error
 
 
 // armo el constructor de objetos
@@ -41,11 +41,13 @@ class Experimento {
         this.reactivosExtra = reactivosExtra;
     }
     restarMedioCultivo() {
-        stockMedioCultivoMl -= this.consumoMedioCultivo;
-        alert(`Se actualizó el stock del medio de cultivo. Ahora quedan ${stockMedioCultivoMl} ml.`);
-        return stockMedioCultivoMl;
+      traigoStock -= this.consumoMedioCultivo; // ver error
+        alert(`Se actualizó el stock del medio de cultivo. Ahora quedan ${traigoStock} ml.`);
+
+        return traigoStock;
     }
 }
+console.log(JSON.parse(localStorage.getItem("stock medio cultivo")))
 
 const crearExperimento = () => {
     let nombreExp = document.getElementById("nombreExp").value;
@@ -67,6 +69,8 @@ const crearExperimento = () => {
     if (stockMedioCultivoMl < 10) {
     alert(`Reponer medio de cultivo. Sólo quedan ${stockMedioCultivoMl} ml.`);
     };
+    
+    localStorage.setItem(`${document.getElementById("nombreExp").value}`, JSON.stringify(experimento));
 
     return experimento;
 }
@@ -118,8 +122,10 @@ botonNuevoExp.addEventListener("click", (e)=>{
         return
     }  
 
+    
    //mandar a storage
    crearExperimento();
+   
 });
 
 
