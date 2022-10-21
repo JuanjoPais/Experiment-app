@@ -15,6 +15,7 @@ let colorElegido = document.getElementById("colorInput");
 
 let fichaExp = document.getElementById("fichaExp");
 
+
 let fechaInicial =  new Date (document.getElementById("fechaInicio").value).getTime();
 
 let fechaFinal = new Date (document.getElementById("fechaFin").value);
@@ -78,13 +79,15 @@ const crearExperimento = () => {
 
     //cargarFicha();
 
-    document.getElementById("divTitulo").innerHTML= nombreExp;
-    document.getElementById("divEquipo").innerHTML= seleccionEquipo;
-    document.getElementById("divUsuario").innerHTML= seleccionUsuario;
-    document.getElementById("divDescripcion").innerHTML= descripcion;
-    document.getElementById("divInicio").innerHTML= seleccionInicio;
-    document.getElementById("divFinal").innerHTML= seleccionFin;
-    document.getElementById("divConsumo").innerHTML= seleccionConsumoMedioCultivo;
+    document.getElementById("divTitulo").innerHTML+= nombreExp;
+    document.getElementById("divEquipo").innerHTML+= seleccionEquipo;
+    document.getElementById("divUsuario").innerHTML+= seleccionUsuario;
+    document.getElementById("divDescripcion").innerHTML+= descripcion;
+    document.getElementById("divInicio").innerHTML+= seleccionInicio;
+    document.getElementById("divFinal").innerHTML+= seleccionFin;
+    document.getElementById("divConsumo").innerHTML+= seleccionConsumoMedioCultivo;
+
+    
 
     return experimento;
 }
@@ -139,7 +142,8 @@ botonNuevoExp.addEventListener("click", (e)=>{
     
    //mandar a storage
    crearExperimento();
-   cargarFicha();
+   //cargarFicha();
+   document.getElementById("fichaExp").classList.add("visible");
    
 });
 

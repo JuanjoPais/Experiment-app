@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Secular+One&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -52,62 +55,98 @@ main{
 select{
     width: 150px;
 }
+h2{
+    font-size: large;
+    font-family: 'Courgette';
+    font-style: italic;
+}
 
 .divTitulo{
-    border: 1px, black, solid;
+    
     grid-area: titulo;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    
 }
 .divEquipo{
     border: 1px, black, solid;
     grid-area: equipo;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .divUsuario{
     border: 1px, black, solid;
     grid-area: usuario;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .divDescripcion{
-    border: 1px, black, solid;
+  
     grid-area: descripcion;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .divInicio{
     grid-area: inicio;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .divFinal{
     grid-area: final;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .divConsumo{
     grid-area: consumo;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .divReactivosExtra{
     grid-area: extra;
     align-self: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 
 .fichaExp{
+    display: flex;
+    flex-wrap: wrap;
     width: 80%;
     height: 80%;
-    border: 7px black solid;
-    background-color: dimgrey;
+    border: 5px black solid;
+    padding: 50px;
+   
     margin: auto;
     border-radius: 10px;
-    font-size: xx-large;
+    font-size: medium;
+    overflow: hidden;
+    background-image: url(../images/notebook-on-blue-wood-table\ \(1\).jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+    z-index: 2;
+    transform: translateX(200%);
+    transition: .5s ease-out;
+}
 
+.fichaExp.visible{
+    transform: translateX(0%);
 }
 
 .areas{
@@ -120,10 +159,8 @@ select{
     "descripcion descripcion descripcion"
     "inicio . final"
     "consumo consumo consumo"
-    "extra extra extra";    ;  
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
-    grid-template-columns: 1fr, 1fr, 1fr;
-    gap: 5px;
+    "extra extra extra";      
+    gap: 5px;  
    
 }    
 
