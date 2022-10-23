@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="../estilos/estilos.css">
+</head>
+
+<body class="bodyForm">
+
+  <nav class="navbar navbar-expand-xl navbar-dark bg-dark ">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="#"><img src="../images/microscopio.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
+        aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse show" id="navbarDark">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0 ">
+          <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="../index.html">Home</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="./nuevoExperimento.html">Nuevo Experimento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="./misExperimentos.html">Mis Experimentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="./logIn.html">Log In</a>
+          </li>
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="mainExp">
+    <div class="d-flex d-flex align-items-center formInicio">
+      <form id="formUsuarioNuevo" action="">
+
+        <input id="nombreUsuario" class="form-control m-3 bd-highlight d-inline-block border border-dark" type="text" placeholder="Ingresá tu nombre">
+        <input id="apellidoUsuario" class="form-control m-3 bd-highlight d-inline-block border border-dark" type="text" placeholder="Ingresá tu apellido">
+        <input id="usuario" class="form-control m-3 bd-highlight d-inline-block border border-dark" type="text" placeholder="Ingresá tu nombre de usuario">
+        <input id="contraseniaUsuario" class="form-control m-3 bd-highlight d-inline-block border border-dark" type="text" placeholder="Ingresá tu contraseña">
+
+        <button id="botonRegistro" class="form-control m-3 bd-highlight d-inline-block border border-dark btn btn-dark" type="submit">Registrate</button>
+
+      </form>
+
+        <p id="errorRegistro" class="error"></p>
+    </div>
+
+    <div class="d-flex align-items-center formInicio">
+      <form id="formInicioSesion" action="">
+
+        <input id="nombreUsuarioSesion" class="form-control m-3 bd-highlight d-inline-block border border-dark" type="text" placeholder="Ingresá tu nombre de usuario">
+        <input id="constraseniaUsuarioSesion" class="form-control m-3 bd-highlight d-inline-block border border-dark" type="text" placeholder="Ingresá tu contraseña">
+        <button id="botonInicioSesion" class="form-control m-3 bd-highlight d-inline-block border border-dark btn btn-dark" type="submit">Iniciá sesión</button>
+
+      </form>
+    </div>
+
+
+  </main>
+
+
+
+  <footer>
+
+    <p class ="textoFooter">LabApp 2022</p>
+  </footer>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../javascript/main.js"></script>
+  <script src="../javascript/jsLogIn.js"></script>
+</body>
+
+</html>

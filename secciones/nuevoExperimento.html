@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Experimento</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="../estilos/estilos.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-xl navbar-dark bg-dark ">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="#"><img src="../images/microscopio.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
+        aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse show" id="navbarDark">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0 ">
+          <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="../index.html">Home</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="./nuevoExperimento.html">Nuevo Experimento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="./misExperimentos.html">Mis Experimentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="./logIn.html">Log In</a>
+          </li>
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <main class="mainExp">
+    <form id="formulario" class="formExp" action="">
+      <div>
+        <input id="nombreExp" type="text" class="form-control m-2 bd-highlight d-inline-block border border-dark"
+          placeholder="Nombre del experimento">
+
+        <select id="equipoExp" class="form-select m-2 bd-highlight d-inline-block border border-dark"
+          aria-label="Default select">
+          <option selected="">Seleccioná el equipo</option>
+          <option value="Tissue">Tissue</option>
+          <option value="Stem cells">Stem cells</option>
+          <option value="Ecología">Ecología</option>
+        </select>
+
+        <input id="usuario" type="text" class="form-control m-2 bd-highlight d-inline-block border border-dark"
+          placeholder="Ingresá tu nombre de usuario">
+
+
+        <div id="objetivosExp" class="form-floating ">
+          <textarea class="form-control m-2 bd-highlight border border-dark" id="idDescripcion"
+            style="height: 100px"></textarea>
+          <label class="mx-2" for="floatingTextarea">Descripción</label>
+        </div>
+
+        <div id="divFechas" class="d-flex flex-row justify-content-evenly align-items-end mb-2">
+          <div class="d-flex flex-column align-items-center">
+            <p>Fecha de inicio</p>
+            <input type="date" id="fechaInicio">
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <p>Fecha de finalizacion</p>
+            <input type="date" id="fechaFin">
+          </div>
+        </div>
+
+
+
+
+
+        <input id="consumoMedioCultivo" type="number"
+          class="form-control m-2 bd-highlight d-inline-block border border-dark"
+          placeholder="Cuánto medio de cultivo vas a consumir? Ingresá los ml sin unidad.">
+
+        
+
+        <div class=" bd-highlight d-inline-block d-flex justify-content-evenly align-items-end mb-2">
+
+          <label for="colorInput" class="form-label ">Color picker</label>
+          <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c"
+            title="Choose your color">
+
+
+
+          <div class="form-check  bd-highlight d-inline-block d-flex justify-content-center bd-highlight mb-2 ">
+            <input class="form-check-input" type="radio" name="radioDefault" id="formRadioDefault">
+            <label class="form-check-label" for="formRadioDefault">Añadir reactivo</label>
+          </div>
+        </div>
+
+        <div id="nuevoReactivo" class="mx-2">
+
+        </div>
+
+        <div class="d-flex justify-content-end bd-highlight  mb-2">
+          <button id="botonNuevoExp" type="submit" class="btn btn-dark ">Cargar Experimento</button>
+        </div>
+        <div class="d-flex justify-content-end bd-highlight  ">
+          <button  type="submit" class="btn btn-dark ">Refrescar formulario</button>
+        </div>
+      </div>
+
+    </form>
+
+    <div id="fichaExp" class="fichaExp">
+      <div class="areas">
+        <div id="divTitulo" class="divTitulo">
+          <h2>Proyecto:
+          </h2>
+        </div>
+        <div id="divEquipo" class="divEquipo">
+          <h2>Equipo:          </h2>
+        </div>
+        <div id="divUsuario" class="divUsuario">
+          <h2>Responsable: </h2>
+        </div>
+        <div id="divDescripcion" class="divDescripcion"><h2>Descripción: </h2></div>
+        <div id="divInicio" class="divInicio"><h2>Fecha de inicio: </h2></div>
+        <div id="divFinal" class="divFinal"><h2>Fecha de finalizacion: </h2></div>
+        <div id="divConsumo" class="divConsumo">
+          <h2>Volumen de medio de cultivo consumido (ml): </h2>
+        </div>
+        <div id="divReactivosExtra" class="divReactivosExtra">
+          <h2>Otros reactivos: </h2>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+
+  <footer>
+
+    <p class="textoFooter">LabApp 2022</p>
+  </footer>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../javascript/main.js"></script>
+  <script src="../javascript/jsNuevoEXP.js"></script>
+</body>
+
+</html>
