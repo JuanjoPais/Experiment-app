@@ -9,7 +9,7 @@ let stockMedioCultivoMl = 100;
 
 const botonNuevoExp = document.getElementById("botonNuevoExp");
 
-const nuevoReactivo = document.getElementById("formRadioDefault");
+const nuevoReactivos = document.getElementById("formRadioDefault");
 
 let colorElegido = document.getElementById("colorInput");
 
@@ -45,14 +45,24 @@ class Experimento {
     }
     restarMedioCultivo() {
       stock = stock - this.consumoMedioCultivo; 
-        alert(`Se actualizó el stock del medio de cultivo. Ahora quedan ${stock} ml.`);
+      
+      
+      swal(`Se actualizó el stock del medio de cultivo. Ahora quedan ${stock} ml.`);
 
         localStorage.setItem("stock medio cultivo", JSON.stringify(stock))
 
         return stock;
     }
 }
-console.log(JSON.parse(localStorage.getItem("stock medio cultivo")))
+
+class ReactivosComplementarios {
+    constructor(reactivo, marcaYLote, cantidad) {
+        this.reactivo = reactivo;
+        this.marcaYLote = marcaYLote;
+        this.cantidad = cantidad;        
+    }
+}
+
 
 const crearExperimento = () => {
     let nombreExp = document.getElementById("nombreExp").value;
@@ -72,12 +82,12 @@ const crearExperimento = () => {
     expesCreados.push(experimento);
 
     if (stock < 10) {
-    alert(`Reponer medio de cultivo. Sólo quedan ${stock} ml.`);
+        swal(`Reponer medio de cultivo. Sólo quedan ${stock} ml.`);
     };
     
     localStorage.setItem(`${document.getElementById("nombreExp").value}`, JSON.stringify(experimento));
 
-    //cargarFicha();
+    
 
     document.getElementById("divTitulo").innerHTML+= nombreExp;
     document.getElementById("divEquipo").innerHTML+= seleccionEquipo;
@@ -86,19 +96,14 @@ const crearExperimento = () => {
     document.getElementById("divInicio").innerHTML+= seleccionInicio;
     document.getElementById("divFinal").innerHTML+= seleccionFin;
     document.getElementById("divConsumo").innerHTML+= seleccionConsumoMedioCultivo;
+    document.getElementById("divReactivosExtra").innerHTML+= `${listadoReactivosComplementarios[0].reactivo}, marca y lote: ${listadoReactivosComplementarios[0].marcaYLote}, volumen ${listadoReactivosComplementarios[0].cantidad} ml`;
 
     
 
     return experimento;
 }
 
-class ReactivosComplementarios {
-    constructor(reactivo, marcaYLote, cantidad) {
-        this.reactivo = reactivo;
-        this.marcaYLote = marcaYLote;
-        this.cantidad = cantidad;        
-    }
-}
+
 
 // Validacion de formulario y cargar de datos
 
@@ -128,21 +133,17 @@ botonNuevoExp.addEventListener("click", (e)=>{
     return ;
     }      
       
-    let modal= document.getElementById("modalMedioCultivo")
+   
 
     if (document.getElementById("consumoMedioCultivo").value > stock){
-        modal.showModal();
-        document.getElementById("cerrarModal").addEventListener("click", (e)=>{
-        e.preventDefault();
-        modal.close();
-       })
+        swal("No hay suficiente medio de cultivo. Ingresá una cantidad menor, o prepará más medio de cultivo.")
         return
     }  
 
     
-   //mandar a storage
+
    crearExperimento();
-   //cargarFicha();
+   
    document.getElementById("fichaExp").classList.add("visible");
    
 });
@@ -178,15 +179,17 @@ const crearReactivoComplementario = () => {
     let cantidad = parseFloat(document.getElementById("cantidad").value);
     
 
-    const nuevoReactivo = new ReactivosComplementarios(reactivo.toLowerCase(), marcaYLote.toLowerCase(), cantidad);
+    const nuevoReactivo = new ReactivosComplementarios(reactivo, marcaYLote, cantidad);
 
     listadoReactivosComplementarios.push(nuevoReactivo);  
+
+   
 
     return listadoReactivosComplementarios;
 }
 
 
-nuevoReactivo.addEventListener("click", mostrarSumarReactivo);
+nuevoReactivos.addEventListener("click", mostrarSumarReactivo);
 
 // doy color al borde del expe creado
 

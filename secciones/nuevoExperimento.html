@@ -88,12 +88,7 @@
           class="form-control m-2 bd-highlight d-inline-block border border-dark"
           placeholder="Cuánto medio de cultivo vas a consumir? Ingresá los ml sin unidad.">
 
-        <dialog id="modalMedioCultivo">
-
-          <p>No hay suficiente medio de cultivo. Ingresá una cantidad menor, o prepará más medio de cultivo. </p>
-          <button id="cerrarModal">Volver</button>
-
-        </dialog>
+        
 
         <div class=" bd-highlight d-inline-block d-flex justify-content-evenly align-items-end mb-2">
 
@@ -113,8 +108,11 @@
 
         </div>
 
-        <div class="d-flex justify-content-end bd-highlight mb-2 m-4">
+        <div class="d-flex justify-content-end bd-highlight  mb-2">
           <button id="botonNuevoExp" type="submit" class="btn btn-dark ">Cargar Experimento</button>
+        </div>
+        <div class="d-flex justify-content-end bd-highlight  ">
+          <button  type="submit" class="btn btn-dark ">Refrescar formulario</button>
         </div>
       </div>
 
@@ -132,11 +130,11 @@
         <div id="divUsuario" class="divUsuario">
           <h2>Responsable: </h2>
         </div>
-        <div id="divDescripcion" class="divDescripcion"><h2>Descrpición: </h2></div>
+        <div id="divDescripcion" class="divDescripcion"><h2>Descripción: </h2></div>
         <div id="divInicio" class="divInicio"><h2>Fecha de inicio: </h2></div>
         <div id="divFinal" class="divFinal"><h2>Fecha de finalizacion: </h2></div>
         <div id="divConsumo" class="divConsumo">
-          <h2>ml de medio de cultivo consumido: </h2>
+          <h2>Volumen de medio de cultivo consumido (ml): </h2>
         </div>
         <div id="divReactivosExtra" class="divReactivosExtra">
           <h2>Otros reactivos: </h2>
@@ -152,7 +150,7 @@
 
     <p class="textoFooter">LabApp 2022</p>
   </footer>
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../javascript/main.js"></script>
   <script src="../javascript/jsNuevoEXP.js"></script>
 </body>
