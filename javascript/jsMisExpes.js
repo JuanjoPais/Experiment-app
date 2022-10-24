@@ -14,8 +14,7 @@ function mostrarExpes() {
 
         divCadaExp.innerHTML += `
             <h3 class="tituloFicha">${arrayExperimentos[i].nombreExp}</h3> 
-            <p>${arrayExperimentos[i].usuario}</p>
-            <p>${arrayExperimentos[i].descripcion}</p>
+            <p>Responsable: ${arrayExperimentos[i].usuario}</p>
             <p>${arrayExperimentos[i].equipo}</p>
             <p>Inicio : ${arrayExperimentos[i].fechaInicio}</p>
             <p>Fin: ${arrayExperimentos[i].fechaFin}</p>      
@@ -37,25 +36,59 @@ filtroTodos.addEventListener("click", ()=>{
 
 filtroTissue.addEventListener("click", (e) => {
     contenedorExpes.innerHTML="";
-    let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Tissue");    
-    
+    let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Tissue");
 
-    arrayTissue.forEach(element => {
-        
-   
+    arrayTissue.forEach(element => {   
         let divCadaExp = document.createElement("div");
-
         divCadaExp.innerHTML += `
             <h3 class="tituloFicha">${element.nombreExp}</h3> 
-            <p>${element.usuario}</p>
-            <p>${element.descripcion}</p>
+            <p>${element.usuario}</p>           
             <p>${element.equipo}</p>
             <p>Inicio : ${element.fechaInicio}</p>
             <p>Fin: ${element.fechaFin}</p>      
         `;
-
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = element.color;
         divCadaExp.classList.add("divExp"); });  
     }
 );
+
+filtroStemCells.addEventListener("click", (e) => {
+    contenedorExpes.innerHTML="";
+    let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Stem cells");
+
+    arrayTissue.forEach(element => {   
+        let divCadaExp = document.createElement("div");
+        divCadaExp.innerHTML += `
+            <h3 class="tituloFicha">${element.nombreExp}</h3> 
+            <p>${element.usuario}</p>            
+            <p>${element.equipo}</p>
+            <p>Inicio : ${element.fechaInicio}</p>
+            <p>Fin: ${element.fechaFin}</p>      
+        `;
+        contenedorExpes.appendChild(divCadaExp);
+        divCadaExp.style.borderColor = element.color;
+        divCadaExp.classList.add("divExp"); });  
+    }
+);
+
+filtroEcologia.addEventListener("click", (e) => {
+    contenedorExpes.innerHTML="";
+    let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Ecología");
+
+    arrayTissue.forEach(element => {   
+        let divCadaExp = document.createElement("div");
+        divCadaExp.innerHTML += `
+            <h3 class="tituloFicha">${element.nombreExp}</h3> 
+            <p>${element.usuario}</p>            
+            <p>${element.equipo}</p>
+            <p>Inicio : ${element.fechaInicio}</p>
+            <p>Fin: ${element.fechaFin}</p>      
+        `;
+        contenedorExpes.appendChild(divCadaExp);
+        divCadaExp.style.borderColor = element.color;
+        divCadaExp.classList.add("divExp"); });  
+    }
+);
+
+

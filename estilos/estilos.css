@@ -239,7 +239,7 @@ footer{
 .filtroEquipos{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 15px;
     padding-left: 10px;
     margin-bottom: 10px;
 }
@@ -247,9 +247,19 @@ footer{
 .botonesEquipos{
     display: flex;
     justify-content: space-around;
-    padding-top: 25px;
-
+    padding-top: 15px;
+    flex-direction: column;
 }
+
+.botonesMisExp{
+    margin: 5px;
+}
+.divFechasMisExp{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 
 .fichasExp{
     width: 100%;
@@ -260,30 +270,32 @@ footer{
     grid-template-rows: 33% 33% auto; 
     justify-items: center;
     align-items: center;
-    padding: 25px;
-    
-    
+    padding: 25px;  
   
 }
 
-.divExp{
-    background-color: rgb(182, 191, 212);
-    margin: 5px;
+.divExp{    
     width: 70%;
-    height: min-content;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    font-size: larger;
+    font-size: medium;
     border: 3px black groove;
     padding-left: 10px;
     border-radius: 10px;
     flex-wrap: wrap;
     overflow: hidden;
-  
+    line-height: 5px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 30px;
+    background-color: rgb(182, 191, 212);
 }
 
 .tituloFicha{
     text-align: center;
+    font-size: large;
+    margin-bottom: 20%;
 }
 
 
