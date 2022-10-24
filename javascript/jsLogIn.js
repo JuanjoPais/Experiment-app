@@ -1,7 +1,7 @@
 let formUsuario = document.getElementById("botonRegistro");
 let errorRegistro = document.getElementById("errorRegistro");
 let botonSesion = document.getElementById("botonInicioSesion");
-let sesionIniciada =0;
+let sesionIniciada = 0;
 let existe;
 let claveCorrecta;
 
@@ -70,14 +70,14 @@ formUsuario.addEventListener("click", (e) => {
 //hacer función para inicio de sesion, que tome el ususario y la clave desde el storage. Y que habilite la carga de expnuevo.
 
 
-let contador=0;
+let contador = 0;
 
 function validoUsuario() {
     let existe = false;
     for (i = 0; i < arrayUsuarios.length; i++) {
         if (arrayUsuarios[i].nombreUsuario == document.getElementById("nombreUsuarioSesion").value) {
             existe = true;
-            contador +=1;
+            contador += 1;
         }
     }
     if (existe == false) {
@@ -87,13 +87,13 @@ function validoUsuario() {
     return existe;
 }
 
-function validoContrasenia(){
+function validoContrasenia() {
     let claveCorrecta = false;
     for (i = 0; i < arrayUsuarios.length; i++) {
 
         if (arrayUsuarios[i].contrasenia == document.getElementById("constraseniaUsuarioSesion").value) {
             claveCorrecta = true;
-            contador+=1;
+            contador += 1;
         }
     }
     if (claveCorrecta == false) {
@@ -105,14 +105,14 @@ function validoContrasenia(){
 
 botonSesion.addEventListener("click", (e) => {
     e.preventDefault();
-   
+
     validoUsuario();
     validoContrasenia();
-    
-        if (contador>=2){
-            swal("Sesión iniciada!", "Bienvenid@", "success");
-            sesionIniciada= 1;
 
-            sessionStorage.setItem("inicioSesion", sesionIniciada)
-        }
+    if (contador >= 2) {
+        swal("Sesión iniciada!", "Bienvenid@", "success");
+        sesionIniciada = 1;
+
+        sessionStorage.setItem("inicioSesion", sesionIniciada)
+    }
 });

@@ -29,16 +29,16 @@ function mostrarExpes() {
 
 mostrarExpes();
 
-filtroTodos.addEventListener("click", ()=>{
-    contenedorExpes.innerHTML="";
+filtroTodos.addEventListener("click", () => {
+    contenedorExpes.innerHTML = "";
     mostrarExpes();
 })
 
 filtroTissue.addEventListener("click", (e) => {
-    contenedorExpes.innerHTML="";
+    contenedorExpes.innerHTML = "";
     let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Tissue");
 
-    arrayTissue.forEach(element => {   
+    arrayTissue.forEach(element => {
         let divCadaExp = document.createElement("div");
         divCadaExp.innerHTML += `
             <h3 class="tituloFicha">${element.nombreExp}</h3> 
@@ -49,15 +49,15 @@ filtroTissue.addEventListener("click", (e) => {
         `;
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = element.color;
-        divCadaExp.classList.add("divExp"); });  
-    }
-);
+        divCadaExp.classList.add("divExp");
+    });
+});
 
 filtroStemCells.addEventListener("click", (e) => {
-    contenedorExpes.innerHTML="";
+    contenedorExpes.innerHTML = "";
     let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Stem cells");
 
-    arrayTissue.forEach(element => {   
+    arrayTissue.forEach(element => {
         let divCadaExp = document.createElement("div");
         divCadaExp.innerHTML += `
             <h3 class="tituloFicha">${element.nombreExp}</h3> 
@@ -68,15 +68,15 @@ filtroStemCells.addEventListener("click", (e) => {
         `;
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = element.color;
-        divCadaExp.classList.add("divExp"); });  
-    }
-);
+        divCadaExp.classList.add("divExp");
+    });
+});
 
 filtroEcologia.addEventListener("click", (e) => {
-    contenedorExpes.innerHTML="";
+    contenedorExpes.innerHTML = "";
     let arrayTissue = arrayExperimentos.filter(exp => exp.equipo == "Ecología");
 
-    arrayTissue.forEach(element => {   
+    arrayTissue.forEach(element => {
         let divCadaExp = document.createElement("div");
         divCadaExp.innerHTML += `
             <h3 class="tituloFicha">${element.nombreExp}</h3> 
@@ -87,8 +87,6 @@ filtroEcologia.addEventListener("click", (e) => {
         `;
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = element.color;
-        divCadaExp.classList.add("divExp"); });  
-    }
-);
-
-
+        divCadaExp.classList.add("divExp");
+    });
+});
