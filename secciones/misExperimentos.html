@@ -25,7 +25,7 @@
           <li class="nav-item">
             <a class="nav-link active fs-5" aria-current="page" href="../index.html">Home</a>
           </li>
-         
+
           <li class="nav-item">
             <a class="nav-link fs-5" href="./nuevoExperimento.html">Nuevo Experimento</a>
           </li>
@@ -43,28 +43,80 @@
     </div>
   </nav>
 
-  <main>
-    <section class="">
+  <main class="mainMisExp">
+    <div class="filtros">
+      
+        
+        <div class="filtroEquipos">
+          <p>Seleccionar por equipo</p>
+          <div class="botonesEquipos">
+            <button id="botonTissue" class="btn btn-dark ">Tissue</button>
+            <button id="botonStemCells" class="btn btn-dark ">Stem Cells</button>
+            <button id="botonEcologia" class="btn btn-dark ">Ecología</button>
+            <button id="botonTodos" class="btn btn-dark ">Todos</button>
+          </div>
+        </div>
+      
 
-      <iframe src="https://calendar.google.com/calendar/embed?src=40792d25f23b795f15b61cdcee43222b27fa7926662ef5d9e68de1e91423036c%40group.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <div class="filtroEquipos">
+          <p>Seleccionar por usuario</p>
+          <div class="botonesEquipos">
+            <button class="btn btn-dark ">Mis experimentos</button>
+            <button class="btn btn-dark ">Todos</button>
+           
+          </div>
+        </div>
+
+        <div class="filtroEquipos">
+          <p>Seleccionar por fecha de inicio</p>
+          <div class="botonesEquipos">
+            <select aria-label="Default select" class="btn btn-dark" name="" id="">
+              <option selected="">Año</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>    
+            <select aria-label="Default select" class="btn btn-dark" name="" id="">
+              <option selected="">Mes</option>
+              <option value="Enero">Enero</option>
+              <option value="Febrero">Febrero</option>
+              <option value="Marzo">Marzo</option>
+              <option value="Abril">Abril</option>
+              <option value="Mayo">Mayo</option>
+              <option value="Junio">Junio</option>
+              <option value="Julio">Julio</option>
+              <option value="Agosto">Agosto</option>
+              <option value="Septiembre">Septiembre</option>
+              <option value="Octubre">Octubre</option>
+              <option value="Noviembre">Noviembre</option>
+              <option value="Diciembre">Diciembre</option>
+            </select>  
+            <button class="btn btn-dark">Filtrar</button>       
+          </div>
+        </div>
+    </div>
 
 
-    </section>
+    <div class="fichasExp"id="contenedorExpes">
 
-    <div class="fichaExp">
-
-      <p>ACA SE MUESTRA LA FICHA CON LA INFO DEL EXPERIMENTO SELECCIONADO EN EL CALENDARIO</p>
+      
+      
 
     </div>
   </main>
 
+  
+
 
   <footer>
-    <p class ="textoFooter">LabApp 2022</p>
+    <p class="textoFooter">LabApp 2022</p>
   </footer>
 
 
   <script src="../javascript/main.js"></script>
+  <script src="../javascript/jsMisExpes.js"></script>
 </body>
 
 </html>

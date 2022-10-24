@@ -6,21 +6,30 @@
     padding: 0;
 }
 
+.video{
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  top: 50%;
+  left: 50%;
 
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+}
 
 
 
 
 body{
+    
     background-image: url(../images/fondoBlanco.jpg);
     background-size: cover; 
 
     display: grid;
+    overflow-x: hidden;
     
    
 }
-
-
 
 main{
     
@@ -183,7 +192,7 @@ footer{
    
     bottom: 0;
     background-color: black;
-    margin-top: 10px;
+    
 }
 
 .textoFooter{
@@ -208,6 +217,73 @@ footer{
 .error{
     color: red;
     font-weight: bolder;
+}
+
+.mainMisExp{
+    display: grid;
+    grid-template-columns: 25% auto;
+    grid-template-rows: 100%;
+}
+
+.filtros{
+    background-color: gray;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 50px;
+    align-items: stretch;
+}
+
+.filtroEquipos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.botonesEquipos{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+
+}
+
+.fichasExp{
+    width: 100%;
+    height: 100%;
+   
+    display: grid;
+    grid-template-columns: 33% 33% auto;
+    grid-template-rows: 33% 33% auto; 
+    justify-items: center;
+    align-items: center;
+    padding: 25px;
+    
+    
+  
+}
+
+.divExp{
+    background-color: rgb(182, 191, 212);
+    margin: 5px;
+    width: 70%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    border: 3px black groove;
+    padding-left: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  
+}
+
+.tituloFicha{
+    text-align: center;
 }
 
 
