@@ -31,14 +31,11 @@ const crearUsuario = () => {
 
     arrayUsuarios.push(nuevoUsuario);
 
-    localStorage.setItem("nuevoUsuario", JSON.stringify(nuevoUsuario))
+    localStorage.setItem(`Usuario ${nuevoUsuario.nombre} ${nuevoUsuario.apellido}`, JSON.stringify(nuevoUsuario))
 
     localStorage.setItem("usuarios", JSON.stringify(arrayUsuarios))
 
-
-
-
-    return listadoUsuarios;
+    return arrayUsuarios;
 }
 
 formUsuario.addEventListener("click", (e) => {
@@ -116,3 +113,4 @@ botonSesion.addEventListener("click", (e) => {
         sessionStorage.setItem("inicioSesion", sesionIniciada)
     }
 });
+
