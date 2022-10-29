@@ -84,35 +84,35 @@
 
 
 
-        <input id="consumoMedioCultivo" type="number"
-          class="form-control m-2 bd-highlight d-inline-block border border-dark"
-          placeholder="Cuánto medio de cultivo vas a consumir? Ingresá los ml sin unidad.">
+        <input id="consumoMedioCultivo" type="number" min="0"
+        class="form-control m-2 bd-highlight d-inline-block border border-dark"
+        placeholder="Cuánto medio de cultivo vas a consumir? Ingresá los ml sin unidad.">
 
 
 
         <div class=" bd-highlight d-inline-block d-flex justify-content-evenly align-items-end mb-2">
-
-          <label for="colorInput" class="form-label ">Color picker</label>
-          <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c"
-            title="Choose your color">
-
-
-
-          <div id="checkComplementarios" class="form-check  bd-highlight d-inline-block d-flex justify-content-center bd-highlight mb-2 ">
-            <input class="form-check-input" type="radio" name="radioDefault" id="formRadioDefault">
-            <label class="form-check-label" for="formRadioDefault">Añadir reactivo</label>
+          <div class="d-flex flex-row bd-highlight align-items-center ">
+            <label for="colorInput" class="form-label ">Color picker</label>
+            <input type="color" class="form-control form-control-color mx-5" id="colorInput" value="#563d7c"
+              title="Choose your color">
           </div>
         </div>
+        <div class="d-flex flex-row" >
+          <input id="cantidadReactivos" class="form-control m-2 bd-highlight d-inline-block border border-dark" type="number"
+            placeholder="Sumás reactivos? Ingresá la cantidad" min="0">
+            <button id="desplegarReactivos" class="btn btn-secondary ">Agregar reactivos</button>
+        </div>
+
+
+
 
         <div id="nuevoReactivo" class="mx-2">
 
         </div>
 
-        <div class="d-flex justify-content-end bd-highlight  mb-2">
-          <button id="botonNuevoExp" type="submit" class="btn btn-dark ">Cargar Experimento</button>
-        </div>
-        <div class="d-flex justify-content-end bd-highlight  ">
-          <button type="submit" class="btn btn-dark ">Refrescar formulario</button>
+        <div class="d-flex justify-content-between bd-highlight mt-4 mb-2 p-3">
+           <button type="submit" class="btn btn-dark ">Refrescar formulario</button>
+           <button id="botonNuevoExp" type="submit" class="btn btn-dark ">Enviar Experimento</button>        
         </div>
       </div>
 

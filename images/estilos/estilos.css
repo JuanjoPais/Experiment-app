@@ -112,8 +112,7 @@ h2{
     grid-area: titulo;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
     
 }
 .divEquipo{
@@ -121,52 +120,46 @@ h2{
     grid-area: equipo;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 .divUsuario{
     border: 1px, black, solid;
     grid-area: usuario;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
+    
 }
 .divDescripcion{
   
     grid-area: descripcion;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 .divInicio{
     grid-area: inicio;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 .divFinal{
     grid-area: final;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 .divConsumo{
     grid-area: consumo;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 .divReactivosExtra{
     grid-area: extra;
     align-self: center;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 
 
@@ -180,10 +173,11 @@ h2{
    
     margin: auto;
     border-radius: 10px;
-    font-size: medium;
+    font-size: large;
     overflow: hidden;  
     transform: translateX(200%);
     transition: .5s ease-out;
+    background-color: rgb(247, 239, 229);
 }
 
 .fichaExp.visible{
@@ -201,7 +195,7 @@ h2{
     "inicio . final"
     "consumo consumo consumo"
     "extra extra extra";      
-    gap: 5px;  
+    gap: 3px;  
     padding: 10px;
    
     
@@ -281,9 +275,12 @@ footer{
 .botonesEquipos{
     display: flex;
     justify-content: space-around;
+    justify-items: center;
     padding-top: 15px;
     flex-direction: column;
+   
 }
+
 
 .botonesMisExp{
     margin: 5px;
@@ -291,7 +288,6 @@ footer{
 .divFechasMisExp{
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
 }
 
 
@@ -306,6 +302,7 @@ footer{
     justify-items: center;
     align-items: flex-start;
     padding: 25px;  
+    
   
 }
 
@@ -315,11 +312,12 @@ footer{
     display: flex;
     flex-direction: column;
     font-size: medium;
-    border: 3px black groove; 
+    border: 3px black groove;
+    padding-left: 10px;
     border-radius: 10px;
     flex-wrap: wrap;
     overflow: hidden;
-    line-height: 7px;
+    line-height: 5px;
     align-items: center;
     justify-content: space-around;
     margin: 30px;

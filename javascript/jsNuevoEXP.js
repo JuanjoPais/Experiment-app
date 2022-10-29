@@ -4,7 +4,7 @@ const listadoReactivosComplementarios = [];
 
 
 const botonNuevoExp = document.getElementById("botonNuevoExp");
-const nuevoReactivos = document.getElementById("formRadioDefault");
+
 let colorElegido = document.getElementById("colorInput");
 let fichaExp = document.getElementById("fichaExp");
 let fechaInicial = new Date(document.getElementById("fechaInicio").value).getTime();
@@ -13,6 +13,8 @@ let stockMedioCultivoMl = JSON.parse(localStorage.getItem("stock medio cultivo")
 
 stockMedioCultivoMl == 0 &&  actualizarMedioCultivo();
 
+let cantidadReactivos = document.getElementById("cantidadReactivos");
+let btnDesplegarReactivos = document.getElementById("desplegarReactivos");
 
 
 
@@ -80,21 +82,7 @@ const crearExperimento = () => {
     return experimento;
 }
 
-const crearReactivoComplementario = () => {
-    let reactivo = document.getElementById("reactivo").value;
-    let marcaYLote = document.getElementById("marcaYLote").value;
-    let cantidad = parseFloat(document.getElementById("cantidad").value);
 
-    const nuevoReactivo = new ReactivosComplementarios(reactivo, marcaYLote, cantidad);
-
-    listadoReactivosComplementarios.push(nuevoReactivo);
-
-    document.getElementById("divReactivosExtra").innerHTML += `${listadoReactivosComplementarios[0].reactivo}, marca y lote: ${listadoReactivosComplementarios[0].marcaYLote}, volumen ${listadoReactivosComplementarios[0].cantidad} ml`;
-
-    return listadoReactivosComplementarios;
-}
-
-// Validacion de formulario y cargar de datos
 
 
 
@@ -145,39 +133,41 @@ botonNuevoExp.addEventListener("click", (e) => {
 
 // REVISAR ESTO. TENGO QUE CAMBIAR LA FORMA DE GENERAR LOS BOTONES
 
-const mostrarSumarReactivo = () => {
+const mostrarSumarYCargarReactivos = () => {
+    for (let i=0; i<cantidadReactivos.value; i++){
     let divNuevoReactivo = document.createElement("div");
     divNuevoReactivo.innerHTML = `          
-          <input id="reactivo" class ="form-control m-1 border border-dark" type="text" placeholder="Reactivo"> 
-          <input id="marcaYLote" class ="form-control m-1 border border-dark" type="text" type="text" placeholder="Marca y número de lote"> 
-          <input id="cantidad" class ="form-control m-1 border border-dark" type="text" type="text" placeholder="Cantidad a utlizar"> 
-          <button  id="cargarReactivo" class ="m-1 btn btn-dark">Cargar Reactivo</button>
-          <button  id="sumarOtroReactivo" class ="m-1 btn btn-dark">Sumar más reactivos</button>
+          <input id="reactivo${i}" class ="form-control m-1 border border-dark" type="text" placeholder="Reactivo"> 
+          <input id="marcaYLote${i}" class ="form-control m-1 border border-dark" type="text" type="text" placeholder="Marca y número de lote"> 
+          <input id="cantidad${i}" class ="form-control m-1 border border-dark" type="number" min="0" placeholder="Cantidad a utlizar"> 
+          <button  id="cargarReactivo${i}" class ="m-1 btn btn-dark">Cargar Reactivo</button>         
           `;
 
     document.getElementById("nuevoReactivo").append(divNuevoReactivo);
 
-    const formCargarReactivoComplementario = document.getElementById("cargarReactivo");
+    const formCargarReactivoComplementario = document.getElementById(`cargarReactivo${i}`);
 
     formCargarReactivoComplementario.addEventListener("click", (e) => {
         e.preventDefault();
-        crearReactivoComplementario();
-    });
-
-    const btnSumarOtroReactivo = document.getElementById("sumarOtroReactivo");
-
-    btnSumarOtroReactivo.addEventListener("click", (e)=>{
-        e.preventDefault();
-        document.getElementById("checkComplementarios").innerHTML=""
-    })
-
-    document.getElementById("reactivo").innerText=""
-    document.getElementById("marcaYLote").innerText=""
-    document.getElementById("cantidad").innerText=""
+        let reactivo = document.getElementById(`reactivo${i}`).value;
+        let marcaYLote = document.getElementById(`marcaYLote${i}`).value;
+        let cantidad = parseFloat(document.getElementById(`cantidad${i}`).value);
+    
+        const nuevoReactivo = new ReactivosComplementarios(reactivo, marcaYLote, cantidad);
+    
+        listadoReactivosComplementarios.push(nuevoReactivo);
+    
+        document.getElementById("divReactivosExtra").innerHTML += `${listadoReactivosComplementarios[i].reactivo}, marca y lote: ${listadoReactivosComplementarios[i].marcaYLote}, volumen ${listadoReactivosComplementarios[i].cantidad} ml.<br>`;
+       
+        return listadoReactivosComplementarios;;
+    })};
+    
 
 };
 
-nuevoReactivos.addEventListener("click", mostrarSumarReactivo);
+btnDesplegarReactivos.addEventListener("click", (e)=>{
+    e.preventDefault();
+    mostrarSumarYCargarReactivos()});
 
 // doy color al borde del expe creado
 
