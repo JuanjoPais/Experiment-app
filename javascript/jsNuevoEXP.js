@@ -15,6 +15,7 @@ stockMedioCultivoMl == 0 &&  actualizarMedioCultivo();
 
 let cantidadReactivos = document.getElementById("cantidadReactivos");
 let btnDesplegarReactivos = document.getElementById("desplegarReactivos");
+let matcheoUsuario = 0;
 
 
 
@@ -97,13 +98,21 @@ botonNuevoExp.addEventListener("click", (e) => {
         document.getElementById("equipoExp").style.backgroundColor = "#E3F553";
         return
     }
-    function chequeoUsuariosExistentes (){
-        arrayUsuarios.forEach(usuario => {
-            usuario.nombreUsuario == document.getElementById("usuario").value        
-         })
-    return
+    function chequeoUsuariosExistentes (){//ver
+        for (let i=0; i<arrayUsuarios.length; i++){
+            if(arrayUsuarios[i].nombreUsuario == document.getElementById("usuario").value){
+
+                matcheoUsuario++
+            }
+            
+        }
+            console.log(matcheoUsuario)
+         return matcheoUsuario;
+    
     }
-    if(chequeoUsuariosExistentes() == false){
+    chequeoUsuariosExistentes();
+
+    if(matcheoUsuario==0){
         document.getElementById("usuario").style.backgroundColor = "#E3F553";
         swal("Ese nombre de usuario no está registrado. Corregilo o iniciá sesión primero.")
         return
