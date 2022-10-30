@@ -5,9 +5,12 @@ let filtroEcologia = document.getElementById("botonEcologia");
 let filtroTodos = document.getElementById("botonTodos");
 let opcionesDeUsuarios = document.getElementById("opcionesDeUsuarios");
 let opcionTodosUsuarios = document.getElementById("todosUsuarios");
-let seleccionMesInicio = document.getElementById("seleccionMesInicio");
-let seleccionAnioInicio= document.getElementById("seleccionAnioInicio");
-let btnFiltrarFecha = document.getElementById("btnFiltrarFecha");
+let btnConcluidos = document.getElementById("botonConcluidos");
+let btnEnCurso = document.getElementById("botonEnCurso");
+let btnProgramados = document.getElementById("botonProgramados");
+let btnTodosFechas = document.getElementById("botonTodosFechas");
+let hoy= new Date();
+
 
 
 function mostrarExpes() {
@@ -115,5 +118,38 @@ opcionesDeUsuarios.addEventListener("change", (e) => {
     }
 });
 
-let fechaSeleccionada= seleccionMesInicio.value
+
+btnConcluidos.addEventListener("click", ()=>{
+    let arrayConcluidos = arrayExperimentos.filter(exp => (new Date (exp.fechaFin).getTime() < hoy.getTime()));
+    contenedorExpes.innerHTML = "";    
+    agregarExpeFiltrado(arrayConcluidos);
+});
+
+btnProgramados.addEventListener("click", ()=>{
+    let arrayProgramados = arrayExperimentos.filter(exp => (new Date (exp.fechaInicio).getTime() > hoy.getTime()));
+    contenedorExpes.innerHTML = "";    
+    agregarExpeFiltrado(arrayProgramados);
+})
+
+btnEnCurso.addEventListener("click", ()=>{
+    let arrayEnCurso1 = arrayExperimentos.filter(exp => hoy.getTime() < new Date (exp.fechaFin).getTime());
+    let arrayEnCurso2 = arrayEnCurso1.filter(exp => (new Date (exp.fechaInicio).getTime()< hoy.getTime()));
+    contenedorExpes.innerHTML = "";    
+    agregarExpeFiltrado(arrayEnCurso2);
+})
+
+btnTodosFechas.addEventListener("click", () => {
+    contenedorExpes.innerHTML = "";
+    mostrarExpes();
+})
+
+
+
+
+
+
+   
+
+
+
 

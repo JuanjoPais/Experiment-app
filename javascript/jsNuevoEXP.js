@@ -98,17 +98,13 @@ botonNuevoExp.addEventListener("click", (e) => {
         document.getElementById("equipoExp").style.backgroundColor = "#E3F553";
         return
     }
-    function chequeoUsuariosExistentes (){//ver
+    function chequeoUsuariosExistentes (){
         for (let i=0; i<arrayUsuarios.length; i++){
             if(arrayUsuarios[i].nombreUsuario == document.getElementById("usuario").value){
-
                 matcheoUsuario++
-            }
-            
-        }
-            console.log(matcheoUsuario)
-         return matcheoUsuario;
-    
+            }            
+        }            
+        return matcheoUsuario;    
     }
     chequeoUsuariosExistentes();
 
