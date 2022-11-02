@@ -32,8 +32,9 @@ video{
     display: flex;
     justify-content: flex-end;
     margin: 10%;
-    height: 60%;
-    
+    width: 50%;
+    height: 40%;
+    align-self: flex-start;    
    
 }
 
@@ -41,58 +42,94 @@ video{
     display: flex;
     flex-direction: column;
     width: 70%;
-    height: 90%;
+    height: max-content;
     padding: 30px;
-    background-color: gray;
+    background-image: url(../images/fondoBlanco.jpg);
+    background-size: contain;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedorCitas{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+    height: max-content;
+    
+    
+    justify-content: space-between;
     
 }
+.cita{
+    font-size: xx-large;
+    font-style: italic;
+    padding: 2% 2% 0 6%;
+}
+.autor{
+    text-align:right;
+    padding-top: 2%;
+    padding-right: 2%;
+    font-size: large;
+    font-weight: 500;
+}
+.comillas{
+    
+    margin-left: 93%;
+    padding: 0 2% 0 0;
+    
+}
+.invertida{
+    transform: scaleX(-1);
+    width: 6%;
+    margin: 2px;
+    
+}
+.btnCita{
+    margin-top: 5%;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    transition: 0.2s all;
+    border: solid black 1px;
+    border-radius: 100%;
+    padding: 1%;
+    cursor: pointer;
 
-h1{
-    margin-bottom: 40px;
 }
 
 
-
+h1{
+    display: block;
+    margin-bottom: 40px;
+    font-size: 400%;
+    border-bottom: double black 2px;
+}
 
 body{
     
     background-image: url(../images/fondoBlanco.jpg);
     background-size: cover; 
-
     display: grid;
     overflow-x: hidden;
-    
    
 }
 
 main{
     
     display: grid;
-    justify-items: auto;
-        
+    justify-items: auto;        
     align-items: center;
     grid-template-columns: 50% 50%;
     min-height: 100vh;
     position: relative;
-    align-items: center;
-
-  
+    align-items: center; 
    
 }
 
-.containerCard{
-    margin: 100px;
+.mainIndex{
     display: flex;
-    flex-direction: column;
-    align-items: left;
-
+    justify-content: flex-end;
 }
-
-.card-img-top{
-    width: 50%;
-    height: 50%;
-}
-
 .cuadroDescripcion{
     width: 100%;
 }
@@ -310,6 +347,7 @@ footer{
 }
 
 .divExp{    
+    position: relative;
     width: 70%;
     max-height: 80%;
     display: flex;
@@ -324,6 +362,48 @@ footer{
     justify-content: space-around;
     margin: 30px;
     background-color: rgb(182, 191, 212);
+}
+.divExp:hover .btnBorrarExpe {
+    transform: translateX(0);
+}
+.divExp:hover .btnBorrarExpe2 {
+    transform: translateX(0);
+}
+
+.btnBorrarExpe{
+    background-color: grey;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 15%;    
+    height: min-content;
+    padding: 5%; 
+    transform: translateX(300px);
+    transition: .5s ease;
+    outline: none;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.2rem;   
+}
+.btnBorrarExpe2{ /*USAR PROPIEDAD DE COPIAR COSAS*/
+    background-color: grey;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 35%;    
+    height: min-content;
+    padding: 5%; 
+    transform: translateX(300px);
+    transition: .5s ease;
+    outline: none;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.2rem;   
+    margin-top: 1em;
 }
 
 .tituloFicha{

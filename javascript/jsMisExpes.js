@@ -24,7 +24,10 @@ function mostrarExpes() {
             <p>Responsable: ${arrayExperimentos[i].usuario}</p>
             <p>${arrayExperimentos[i].equipo}</p>
             <p>Inicio : ${arrayExperimentos[i].fechaInicio}</p>
-            <p>Fin: ${arrayExperimentos[i].fechaFin}</p>      
+            <p>Fin: ${arrayExperimentos[i].fechaFin}</p>  
+            <img class="btnBorrarExpe" src="../images/cancel.png"></img>    
+            <img class="btnBorrarExpe2" src="../images/eye.png"></img>    
+
         `;
 
         contenedorExpes.appendChild(divCadaExp);
@@ -35,6 +38,8 @@ function mostrarExpes() {
 }
 
 mostrarExpes();
+
+//FILTROS POR EQUIPO
 
 filtroTodos.addEventListener("click", () => {
     contenedorExpes.innerHTML = "";
@@ -118,6 +123,7 @@ opcionesDeUsuarios.addEventListener("change", (e) => {
     }
 });
 
+//FILTROS POR FECHA
 
 btnConcluidos.addEventListener("click", ()=>{
     let arrayConcluidos = arrayExperimentos.filter(exp => (new Date (exp.fechaFin).getTime() < hoy.getTime()));
