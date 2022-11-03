@@ -338,7 +338,7 @@ footer{
     height: 100%;
    
     display: grid;
-    grid-template-columns: 33% 33% auto;
+    grid-template-columns: 50% 50%;
      
     justify-items: center;
     align-items: flex-start;
@@ -348,74 +348,57 @@ footer{
 
 .divExp{    
     position: relative;
-    width: 70%;
-    max-height: 80%;
+    width: 85%;
+    max-height: max-content;
     display: flex;
     flex-direction: column;
-    font-size: medium;
+    font-size: large;
     border: 3px black groove; 
     border-radius: 10px;
     flex-wrap: wrap;
     overflow: hidden;
-    line-height: 7px;
+    line-height: 15px;
     align-items: center;
     justify-content: space-around;
     margin: 30px;
     background-color: rgb(182, 191, 212);
 }
-.divExp:hover .btnBorrarExpe {
-    transform: translateX(0);
-}
-.divExp:hover .btnVerDetalle {
-    transform: translateX(0);
-}
 
-.btnBorrarExpe{
-    background-color: grey;
-    color: white;
-    position: absolute;
-    right: 0;
-    top: 15%;    
-    height: min-content;
-    padding: 2%; 
-    transform: translateX(300px);
-    transition: .5s ease;
-    outline: none;
-    border: none;
-    border-radius: 5%;
-    cursor: pointer;
-    font-weight: bolder;
-    font-size: 1.2rem;   
-}
-.btnVerDetalle{ /*USAR PROPIEDAD DE COPIAR COSAS. dsp de aplicar SASS*/
-    background-color: grey;
-    color: white;
-    position: absolute;
-    right: 0;
-    top: 35%;    
-    height: min-content;
-    padding: 2%; 
-    transform: translateX(300px);
-    transition: .5s ease;
-    outline: none;
-    border: none;
-    border-radius: 5%;
-    cursor: pointer;
-    font-weight: bolder;
-    font-size: 1.2rem;   
-    margin-top: 1em;
-}
 
 .tituloFicha{
     text-align: center;
     font-size: large;
     margin-bottom: 15%;
     padding-top: 10%;
+    font-size: xx-large;
+  
 }
 .esconder{
     display: none;
 }
+.divExtras{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.titulosExtras{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: medium;
+}
+.datosExtras{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    font-size: medium;    
+}
 
+.divCanvas{
+    position: absolute;
+    margin-top: 5%;
+    font-size: xx-large;
 
-
+}
 

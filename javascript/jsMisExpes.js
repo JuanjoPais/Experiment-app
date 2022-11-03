@@ -11,6 +11,7 @@ let btnProgramados = document.getElementById("botonProgramados");
 let btnTodosFechas = document.getElementById("botonTodosFechas");
 let hoy= new Date();
 let btnBorrarExpes = document.querySelectorAll(".btnBorrarExpe");
+let botonTorta = document.getElementById("botonTorta");
 
 
 function mostrarExpes() {
@@ -25,10 +26,29 @@ function mostrarExpes() {
             <p>${arrayExperimentos[i].equipo}</p>
             <p>Inicio : ${arrayExperimentos[i].fechaInicio}</p>
             <p>Fin: ${arrayExperimentos[i].fechaFin}</p>  
-            <button id="borrarExpe" class="btnBorrarExpe"> <img  src="../images/cancel.png"></img></button>    
-            <img id="verDetalle" class="btnVerDetalle" src="../images/eye.png"></img>    
+            <p class="mt-2 ">${arrayExperimentos[i].descripcion}</p>`;
 
-        `;
+            if((arrayExperimentos[i].reactivosExtra).length !=0){
+                let divExtras = document.createElement("div");
+                divExtras.innerHTML=`
+                    <div class="titulosExtras mt-2">
+                    <p>Reactivo</p>
+                    <p>Marca y Lote</p>
+                    <p>Cantidad</p> 
+                    </div>                
+                `;
+                arrayExperimentos[i].reactivosExtra.forEach(dato =>{
+                    divExtras.innerHTML += `   
+                    <div class="datosExtras">                 
+                    <p>${dato.reactivo}</p>
+                    <p>${dato.marcaYLote}</p>
+                    <p>${dato.cantidad}</p>
+                    </div>`
+                })           
+                divCadaExp.appendChild(divExtras);
+                divExtras.classList.add("divExtras")     
+            }
+     
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = arrayExperimentos[i].color;
         divCadaExp.classList.add("divExp");
@@ -38,9 +58,7 @@ function mostrarExpes() {
 mostrarExpes();
 
     
-    function borrarExpes(){
-       alert("ey")
-    }
+    
 //FILTROS POR EQUIPO
 
 filtroTodos.addEventListener("click", () => {
@@ -74,11 +92,31 @@ let agregarExpeFiltrado = (array) => {
         let divCadaExp = document.createElement("div");
         divCadaExp.innerHTML += `
         <h3 class="tituloFicha">${element.nombreExp}</h3> 
-        <p>${element.usuario}</p>            
+        <p>Responsable: ${element.usuario}</p>            
         <p>${element.equipo}</p>
         <p>Inicio : ${element.fechaInicio}</p>
         <p>Fin: ${element.fechaFin}</p>      
     `;
+    if((element.reactivosExtra).length !=0){
+        let divExtras = document.createElement("div");
+        divExtras.innerHTML=`
+            <div class="titulosExtras mt-2">
+            <p>Reactivo</p>
+            <p>Marca y Lote</p>
+            <p>Cantidad</p> 
+            </div>                
+        `;
+       element.reactivosExtra.forEach(dato =>{
+            divExtras.innerHTML += `   
+            <div class="datosExtras">                 
+            <p>${dato.reactivo}</p>
+            <p>${dato.marcaYLote}</p>
+            <p>${dato.cantidad}</p>
+            </div>`
+        })           
+        divCadaExp.appendChild(divExtras);
+        divExtras.classList.add("divExtras")     
+    }
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = element.color;
         divCadaExp.classList.add("divExp");
@@ -151,15 +189,58 @@ btnTodosFechas.addEventListener("click", () => {
     mostrarExpes();
 })
 
+// Hago funcion para ver gráficos
+
+botonTorta.addEventListener("click", ()=>{
+     contenedorExpes.innerHTML="";
+     let divCanvas = document.createElement("div");
+     divCanvas.innerHTML=`<canvas id="myChart" width="400" height="400"></canvas>`
+     contenedorExpes.appendChild(divCanvas);
+     divCanvas.classList.add("divCanvas")
 
 
 
 
 
+const labels = [
+    'Tissue',
+    'Stem Cells',
+    'Ecology',
+    
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+     
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+      borderColor: 'black',
+      data: [
+        (arrayExperimentos.filter(exp => exp.equipo == "Tissue")).length,
+        (arrayExperimentos.filter(exp => exp.equipo == "Stem cells")).length,
+        (arrayExperimentos.filter(exp => exp.equipo == "Ecología")).length,
+        ],
+    }]
+  };
+
+  const config = {
+    type: 'doughnut',
+    data: data,
+    options: {}
+  };
 
 
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
 
 
+});
    
 
 
