@@ -366,7 +366,7 @@ footer{
 .divExp:hover .btnBorrarExpe {
     transform: translateX(0);
 }
-.divExp:hover .btnBorrarExpe2 {
+.divExp:hover .btnVerDetalle {
     transform: translateX(0);
 }
 
@@ -377,7 +377,7 @@ footer{
     right: 0;
     top: 15%;    
     height: min-content;
-    padding: 5%; 
+    padding: 2%; 
     transform: translateX(300px);
     transition: .5s ease;
     outline: none;
@@ -387,14 +387,14 @@ footer{
     font-weight: bolder;
     font-size: 1.2rem;   
 }
-.btnBorrarExpe2{ /*USAR PROPIEDAD DE COPIAR COSAS*/
+.btnVerDetalle{ /*USAR PROPIEDAD DE COPIAR COSAS. dsp de aplicar SASS*/
     background-color: grey;
     color: white;
     position: absolute;
     right: 0;
     top: 35%;    
     height: min-content;
-    padding: 5%; 
+    padding: 2%; 
     transform: translateX(300px);
     transition: .5s ease;
     outline: none;

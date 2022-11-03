@@ -10,7 +10,7 @@ let btnEnCurso = document.getElementById("botonEnCurso");
 let btnProgramados = document.getElementById("botonProgramados");
 let btnTodosFechas = document.getElementById("botonTodosFechas");
 let hoy= new Date();
-
+let btnBorrarExpes = document.querySelectorAll(".btnBorrarExpe");
 
 
 function mostrarExpes() {
@@ -25,20 +25,22 @@ function mostrarExpes() {
             <p>${arrayExperimentos[i].equipo}</p>
             <p>Inicio : ${arrayExperimentos[i].fechaInicio}</p>
             <p>Fin: ${arrayExperimentos[i].fechaFin}</p>  
-            <img class="btnBorrarExpe" src="../images/cancel.png"></img>    
-            <img class="btnBorrarExpe2" src="../images/eye.png"></img>    
+            <button id="borrarExpe" class="btnBorrarExpe"> <img  src="../images/cancel.png"></img></button>    
+            <img id="verDetalle" class="btnVerDetalle" src="../images/eye.png"></img>    
 
         `;
-
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = arrayExperimentos[i].color;
         divCadaExp.classList.add("divExp");
-
-    }
+    }    
 }
 
 mostrarExpes();
 
+    
+    function borrarExpes(){
+       alert("ey")
+    }
 //FILTROS POR EQUIPO
 
 filtroTodos.addEventListener("click", () => {
@@ -148,6 +150,10 @@ btnTodosFechas.addEventListener("click", () => {
     contenedorExpes.innerHTML = "";
     mostrarExpes();
 })
+
+
+
+
 
 
 
