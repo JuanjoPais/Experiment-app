@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Secular+One&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Courgette&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Courgette&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Satisfy&family=Secular+One&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -31,10 +31,11 @@ video{
 .contenedorDivIndex{
     display: flex;
     justify-content: flex-end;
-    margin: 10%;
+    margin: 3%;
     width: 50%;
     height: 40%;
     align-self: flex-start;    
+
    
 }
 
@@ -48,6 +49,8 @@ video{
     background-size: contain;
     justify-content: space-around;
     align-items: center;
+    border: solid 1px black;
+    border-radius: 15%;
 }
 
 .contenedorCitas{
@@ -66,6 +69,8 @@ video{
     font-size: xx-large;
     font-style: italic;
     padding: 2% 2% 0 6%;
+    font-family: 'Satisfy', cursive;
+    font-weight: normal;
 }
 .autor{
     text-align:right;
@@ -101,8 +106,9 @@ video{
 h1{
     display: block;
     margin-bottom: 40px;
-    font-size: 400%;
+    font-size: 350%;
     border-bottom: double black 2px;
+    font-family: 'Secular One', sans-serif;
 }
 
 body{
@@ -212,15 +218,14 @@ h2{
     flex-wrap: wrap;
     width: 80%;
     height: 80%;
-    border: 5px black solid;
-   
-   
+    border: 5px black solid;  
     margin: auto;
     border-radius: 10px;
     font-size: medium;
     overflow: hidden;  
     transform: translateX(200%);
     transition: .5s ease-out;
+    background-color: cornsilk;
 }
 
 .fichaExp.visible{
@@ -313,6 +318,8 @@ footer{
     margin-top: 15px;
     padding-left: 10px;
     margin-bottom: 10px;
+    font-size: large;
+    
 }
 
 .botonesEquipos{
@@ -362,6 +369,7 @@ footer{
     justify-content: space-around;
     margin: 30px;
     background-color: rgb(182, 191, 212);
+   
 }
 
 
@@ -371,6 +379,7 @@ footer{
     margin-bottom: 15%;
     padding-top: 10%;
     font-size: xx-large;
+    font-family: 'Satisfy', cursive;
   
 }
 .esconder{
@@ -397,8 +406,6 @@ footer{
 
 .divCanvas{
     position: absolute;
-    margin-top: 5%;
-    font-size: xx-large;
-
-}
+    margin-top: 6%;
+};
 

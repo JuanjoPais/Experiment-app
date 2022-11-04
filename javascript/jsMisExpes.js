@@ -196,50 +196,41 @@ botonTorta.addEventListener("click", ()=>{
      let divCanvas = document.createElement("div");
      divCanvas.innerHTML=`<canvas id="myChart" width="400" height="400"></canvas>`
      contenedorExpes.appendChild(divCanvas);
-     divCanvas.classList.add("divCanvas")
+     divCanvas.classList.add("divCanvas");
 
-
-
-
-
-const labels = [
-    'Tissue',
-    'Stem Cells',
-    'Ecology',
-    
-  ];
-
-  const data = {
+     const labels = [
+     'Tissue',
+     'Stem Cells',
+     'Ecology',    
+     ];
+    const data = {
     labels: labels,
-    datasets: [{
-     
+    datasets: [{     
         backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
             'rgb(255, 205, 86)'
           ],
-      borderColor: 'black',
-      data: [
-        (arrayExperimentos.filter(exp => exp.equipo == "Tissue")).length,
-        (arrayExperimentos.filter(exp => exp.equipo == "Stem cells")).length,
-        (arrayExperimentos.filter(exp => exp.equipo == "Ecología")).length,
-        ],
-    }]
-  };
-
-  const config = {
+        borderColor: 'black',
+        data: [
+            (arrayExperimentos.filter(exp => exp.equipo == "Tissue")).length,
+            (arrayExperimentos.filter(exp => exp.equipo == "Stem cells")).length,
+            (arrayExperimentos.filter(exp => exp.equipo == "Ecología")).length,
+            ],
+        
+        }]
+    };
+    
+    const config = {
     type: 'doughnut',
     data: data,
     options: {}
-  };
-
-
-  const myChart = new Chart(
+    };
+    const myChart = new Chart(
     document.getElementById('myChart'),
     config
-  );
-
-
+    );
+    
 });
    
 
