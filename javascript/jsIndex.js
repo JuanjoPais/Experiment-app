@@ -19,4 +19,4 @@ const mostrarCitas = async ()=>{
 }       
 
 window.addEventListener("load", mostrarCitas);
-btnCita,addEventListener("click", mostrarCitas);    
+btnCita.addEventListener("click", mostrarCitas);    

@@ -47,12 +47,12 @@ video{
     width: 70%;
     height: max-content;
     padding: 30px;
-    background-image: url(../images/fondoBlanco.jpg);
+    background-image: url(../images/17545.jpg);
     background-size: contain;
     justify-content: space-around;
     align-items: center;
     border: solid 1px black;
-    border-radius: 15%;
+    border-radius: 5%;
 }
 
 .contenedorCitas{
@@ -61,14 +61,12 @@ video{
     flex-direction: column;
     justify-self: center;
     width: 100%;
-    height: max-content;
-    
-    
+    height: max-content;    
     justify-content: space-between;
     
 }
 .cita{
-    font-size: xx-large;
+    font-size: 250%;
     font-style: italic;
     padding: 2% 2% 0 6%;
     font-family: 'Satisfy', cursive;
@@ -78,7 +76,7 @@ video{
     text-align:right;
     padding-top: 2%;
     padding-right: 2%;
-    font-size: large;
+    font-size: 100%;
     font-weight: 500;
 }
 .comillas{
@@ -108,7 +106,7 @@ video{
 h1{
     display: block;
     margin-bottom: 40px;
-    font-size: 350%;
+    font-size: 250%;
     border-bottom: double black 2px;
     font-family: 'Secular One', sans-serif;
 }
@@ -150,6 +148,12 @@ h2{
     font-family: 'Courgette';
     font-style: italic;
     font-weight: bolder;
+}
+
+.formExp{
+    width: 80%;
+    margin: auto;
+
 }
 
 .divTitulo{
@@ -287,11 +291,17 @@ footer{
 }
 
 .formInicio{
-    justify-content: center;
-    justify-items: center;
-    justify-self: center;
+   width: 80%;
+   margin: auto;
+
 }
 
+.mainLogIn{
+    display: grid;
+    align-content: space-between;
+    margin-top: 5%;
+   
+}
 .error{
     color: red;
     font-weight: bolder;
@@ -370,7 +380,7 @@ footer{
     justify-content: space-around;
     margin: 30px;
     font-family: 'Kalam', cursive;
-    background-image: url(../images/sl_072622_51930_13.jpg); 
+    background-image: url(../images/17545.jpg); 
     background-size: cover;
     
 }
@@ -422,5 +432,107 @@ footer{
 .divCanvas{
     position: absolute;
     margin-top: 6%;
-};
+}
+
+.container-fluid{
+    width: 100%;
+}
+
+@media (max-width:600px) {
+    .navbar>.container-fluid{
+        justify-content: center;
+    }
+    .menuNav{
+        align-items: center;
+    }
+    .cita{
+        font-size: 150%;
+    }
+   
+   .mainMisExp{
+    grid-template-columns: 40% 60%;
+   }
+   .recuadroIndex{    
+    width: 100%;       
+    }
+    .fichasExp{
+    grid-template-columns: 100%;
+    }
+    .tituloFicha{
+        font-size: medium;
+    }
+    .contenedorArribaFicha{
+        font-size: small;
+    }
+    .descripcionFicha{
+        font-size: small;
+    }
+    .titulosExtras{
+        font-size: x-small;
+    }
+    .datosExtras{
+        font-size: x-small;
+    }
+    .divCanvas{      
+        width:  -webkit-fill-available;
+        margin-top: 25%;
+    }
+}
+
+@media (min-width:600px) {
+    .fichasExp{
+            grid-template-columns: 100%;
+        }
+    .tituloFicha{
+            font-size: x-large;
+        }
+    .contenedorArribaFicha{
+            font-size: large;
+        }
+    .descripcionFicha{
+            font-size: large;
+        }
+    .titulosExtras{
+            font-size: medium;
+        }
+    .datosExtras{
+            font-size: medium;
+        }
+
+    .recuadroIndex{    
+        width: 100%;       
+    }
+    .menuNav{      
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width:900px) {
+    .recuadroIndex{    
+        width: 70%;       
+    }
+    .menuNav{
+        display: contents;
+    }
+    .fichasExp{
+        grid-template-columns: 50% 50%;
+    }
+    .tituloFicha{
+        font-size: xx-large;
+    }
+    .contenedorArribaFicha{
+        font-size: x-large;
+    }
+    .descripcionFicha{
+        font-size: x-large;
+    }
+    .titulosExtras{
+        font-size: large;
+    }
+    .datosExtras{
+        font-size: large;
+    }
+
+}
 

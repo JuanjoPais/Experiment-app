@@ -180,7 +180,7 @@ btnTodosFechas.addEventListener("click", () => {
     mostrarExpes();
 })
 
-// Hago funcion para ver gráficos
+// Hago funcion para mostrar gráfico de torta
 
 botonTorta.addEventListener("click", ()=>{
      contenedorExpes.innerHTML="";
