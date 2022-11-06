@@ -12,21 +12,24 @@ let btnTodosFechas = document.getElementById("botonTodosFechas");
 let hoy= new Date();
 let btnBorrarExpes = document.querySelectorAll(".btnBorrarExpe");
 let botonTorta = document.getElementById("botonTorta");
-
+AOS.init();
 
 function mostrarExpes() {
-
     for (let i = 0; i < arrayExperimentos.length; i++) {
-
         let divCadaExp = document.createElement("div");
-
         divCadaExp.innerHTML += `
-            <h3 class="tituloFicha">${arrayExperimentos[i].nombreExp}</h3> 
-            <p>Responsable: ${arrayExperimentos[i].usuario}</p>
-            <p>${arrayExperimentos[i].equipo}</p>
-            <p>Inicio : ${arrayExperimentos[i].fechaInicio}</p>
-            <p>Fin: ${arrayExperimentos[i].fechaFin}</p>  
-            <p class="mt-2 ">${arrayExperimentos[i].descripcion}</p>`;
+            <h3 class="tituloFicha">${arrayExperimentos[i].nombreExp}</h3>
+            <div class="contenedorArribaFicha">
+                <div> 
+                    <p>Responsable: ${arrayExperimentos[i].usuario}</p>
+                    <p>Equipo: ${arrayExperimentos[i].equipo}</p>
+                </div>
+                <div>
+                    <p>Inicio : ${arrayExperimentos[i].fechaInicio}</p>
+                    <p>Fin: ${arrayExperimentos[i].fechaFin}</p>  
+                </div>
+            </div>
+            <p class="mt-2 descripcionFicha">${arrayExperimentos[i].descripcion}</p>`;
 
             if((arrayExperimentos[i].reactivosExtra).length !=0){
                 let divExtras = document.createElement("div");
@@ -46,18 +49,16 @@ function mostrarExpes() {
                     </div>`
                 })           
                 divCadaExp.appendChild(divExtras);
-                divExtras.classList.add("divExtras")     
-            }
-     
+                divExtras.classList.add("divExtras")                     
+            }     
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = arrayExperimentos[i].color;
-        divCadaExp.classList.add("divExp");
+        divCadaExp.classList.add("divExp"); 
+        divCadaExp.setAttribute("data-aos", "zoom-in")     
     }    
 }
 
-mostrarExpes();
-
-    
+mostrarExpes();    
     
 //FILTROS POR EQUIPO
 
@@ -69,21 +70,18 @@ filtroTodos.addEventListener("click", () => {
 filtroTissue.addEventListener("click", () => {
     contenedorExpes.innerHTML = "";
     let arrayFiltradoPorExpe = arrayExperimentos.filter(exp => exp.equipo == "Tissue");
-
     agregarExpeFiltrado(arrayFiltradoPorExpe);
 });
 
 filtroStemCells.addEventListener("click", () => {
     contenedorExpes.innerHTML = "";
     let arrayFiltradoPorExpe = arrayExperimentos.filter(exp => exp.equipo == "Stem cells");
-
     agregarExpeFiltrado(arrayFiltradoPorExpe)
 });
 
 filtroEcologia.addEventListener("click", () => {
     contenedorExpes.innerHTML = "";
     let arrayFiltradoPorExpe = arrayExperimentos.filter(exp => exp.equipo == "Ecología");
-
     agregarExpeFiltrado(arrayFiltradoPorExpe);
 });
 
@@ -92,10 +90,17 @@ let agregarExpeFiltrado = (array) => {
         let divCadaExp = document.createElement("div");
         divCadaExp.innerHTML += `
         <h3 class="tituloFicha">${element.nombreExp}</h3> 
-        <p>Responsable: ${element.usuario}</p>            
-        <p>${element.equipo}</p>
-        <p>Inicio : ${element.fechaInicio}</p>
-        <p>Fin: ${element.fechaFin}</p>      
+        <div class="contenedorArribaFicha">
+            <div>
+                <p>Responsable: ${element.usuario}</p>            
+                <p>Equipo: ${element.equipo}</p>
+            </div>
+            <div>    
+                <p>Inicio : ${element.fechaInicio}</p>
+                <p>Fin: ${element.fechaFin}</p>  
+            </div>  
+        </div>
+        <p class="mt-2 descripcionFicha">${element.descripcion}</p> 
     `;
     if((element.reactivosExtra).length !=0){
         let divExtras = document.createElement("div");
@@ -120,11 +125,10 @@ let agregarExpeFiltrado = (array) => {
         contenedorExpes.appendChild(divCadaExp);
         divCadaExp.style.borderColor = element.color;
         divCadaExp.classList.add("divExp");
+        divCadaExp.setAttribute("data-aos", "zoom-in") 
     });
 
 }
-
-
 
 //filtro por usuario
 
@@ -134,7 +138,6 @@ let ponerUsuariosEnFiltro = () => {
         nuevaOpcionUsuario.innerHTML += usuario.nombreUsuario
         nuevaOpcionUsuario.setAttribute("id", `${usuario.nombreUsuario}`);
         nuevaOpcionUsuario.setAttribute("value", `${usuario.nombreUsuario}`);
-
         opcionesDeUsuarios.append(nuevaOpcionUsuario);
     })
 }
@@ -147,19 +150,7 @@ opcionesDeUsuarios.addEventListener("change", (e) => {
     } else {
         contenedorExpes.innerHTML = "";
         let arrayExpePorUsuario = arrayExperimentos.filter(exp => exp.usuario == e.target.value);
-        arrayExpePorUsuario.forEach(element => {
-            let divCadaExp = document.createElement("div");
-            divCadaExp.innerHTML += `
-                    <h3 class="tituloFicha">${element.nombreExp}</h3> 
-                    <p>${element.usuario}</p>           
-                    <p>${element.equipo}</p>
-                    <p>Inicio : ${element.fechaInicio}</p>
-                    <p>Fin: ${element.fechaFin}</p>      
-                 `;
-            contenedorExpes.appendChild(divCadaExp);
-            divCadaExp.style.borderColor = element.color;
-            divCadaExp.classList.add("divExp");
-        })
+        agregarExpeFiltrado(arrayExpePorUsuario);
     }
 });
 
@@ -194,41 +185,40 @@ btnTodosFechas.addEventListener("click", () => {
 botonTorta.addEventListener("click", ()=>{
      contenedorExpes.innerHTML="";
      let divCanvas = document.createElement("div");
-     divCanvas.innerHTML=`<canvas id="myChart" width="400" height="400"></canvas>`
+     divCanvas.innerHTML=`<canvas id="myChart" width="500%" height="500%"></canvas>`
      contenedorExpes.appendChild(divCanvas);
      divCanvas.classList.add("divCanvas");
-
      const labels = [
-     'Tissue',
-     'Stem Cells',
-     'Ecology',    
+        'Tissue',
+        'Stem Cells',
+        'Ecology',    
      ];
     const data = {
-    labels: labels,
-    datasets: [{     
-        backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
-        borderColor: 'black',
-        data: [
-            (arrayExperimentos.filter(exp => exp.equipo == "Tissue")).length,
-            (arrayExperimentos.filter(exp => exp.equipo == "Stem cells")).length,
-            (arrayExperimentos.filter(exp => exp.equipo == "Ecología")).length,
+        labels: labels,
+        datasets: [{     
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
             ],
-        
-        }]
+            borderColor: 'black',
+            data: [
+                (arrayExperimentos.filter(exp => exp.equipo == "Tissue")).length,
+                (arrayExperimentos.filter(exp => exp.equipo == "Stem cells")).length,
+                (arrayExperimentos.filter(exp => exp.equipo == "Ecología")).length,
+                ],
+            
+            }]
     };
     
     const config = {
-    type: 'doughnut',
-    data: data,
-    options: {}
+        type: 'doughnut',
+        data: data,
+        options: {}
     };
     const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
+        document.getElementById('myChart'),
+        config
     );
     
 });

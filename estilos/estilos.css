@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Courgette&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Bangers&family=Bebas+Neue&family=Caveat:wght@500&family=Chivo&family=Courgette&family=Metal&family=Mouse+Memoirs&family=Noto+Sans:wght@300&family=Permanent+Marker&family=Satisfy&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Courgette&family=Permanent+Marker&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Courgette&family=Kalam:wght@300&family=Permanent+Marker&family=Roboto:wght@100&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -331,6 +333,7 @@ footer{
 
 .botonesMisExp{
     margin: 5px;
+    width: 90%;
 }
 .divFechasMisExp{
     display: flex;
@@ -342,24 +345,22 @@ footer{
 
 .fichasExp{
     width: 100%;
-    height: 100%;
-   
+    height: 100%;   
     display: grid;
-    grid-template-columns: 50% 50%;
-     
+    grid-template-columns: 50% 50%;     
     justify-items: center;
     align-items: flex-start;
-    padding: 25px;  
-  
+    padding: 20px;    
 }
 
 .divExp{    
     position: relative;
-    width: 85%;
-    max-height: max-content;
+    width: 85%;    
+    min-height: 350px;    
     display: flex;
     flex-direction: column;
-    font-size: large;
+    font-size: xx-large;
+    font-weight: 600;
     border: 3px black groove; 
     border-radius: 10px;
     flex-wrap: wrap;
@@ -368,18 +369,21 @@ footer{
     align-items: center;
     justify-content: space-around;
     margin: 30px;
-    background-color: rgb(182, 191, 212);
-   
+    font-family: 'Kalam', cursive;
+    background-image: url(../images/sl_072622_51930_13.jpg); 
+    background-size: cover;
+    
 }
 
 
 .tituloFicha{
     text-align: center;
     font-size: large;
-    margin-bottom: 15%;
-    padding-top: 10%;
+    margin-bottom: 8%;
+    padding-top: 8%;
     font-size: xx-large;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Permanent Marker', cursive;
+    text-decoration: underline;
   
 }
 .esconder{
@@ -402,6 +406,17 @@ footer{
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     font-size: medium;    
+}
+.contenedorArribaFicha{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    font-size: x-large; 
+    width: 100%;  
+    line-height: 120%;
+}
+.descripcionFicha{
+    font-size: x-large;
 }
 
 .divCanvas{
