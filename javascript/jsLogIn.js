@@ -5,13 +5,11 @@ let sesionIniciada = 0;
 let existe;
 let claveCorrecta;
 
-
-
-//let nombreUsuarioSesion = document.getElementById("nombreUsuarioSesion").value;
 let claveUsuarioSesion = document.getElementById("constraseniaUsuarioSesion").value;
+let contador = 0;
 
 
-
+//defino constructor de usuarios
 class Usuarios {
     constructor(nombre, apellido, nombreUsuario, contrasenia) {
         this.nombre = nombre;
@@ -21,6 +19,7 @@ class Usuarios {
     }
 }
 
+//armo función para crear un usuario nuevo a partir de los datos ingresados. Luego subo a localStorage
 const crearUsuario = () => {
     let nombre = document.getElementById("nombreUsuario").value;
     let apellido = document.getElementById("apellidoUsuario").value;
@@ -28,19 +27,16 @@ const crearUsuario = () => {
     let contrasenia = document.getElementById("contraseniaUsuario").value;
 
     const nuevoUsuario = new Usuarios(nombre, apellido, nombreUsuario, contrasenia);
-
     arrayUsuarios.push(nuevoUsuario);
-
     localStorage.setItem(`Usuario ${nuevoUsuario.nombre} ${nuevoUsuario.apellido}`, JSON.stringify(nuevoUsuario))
-
     localStorage.setItem("usuarios", JSON.stringify(arrayUsuarios))
 
     return arrayUsuarios;
 }
 
+//Hago una validación del formulario para chequear los datos antes de registrar al usuario nuevo
 formUsuario.addEventListener("click", (e) => {
     e.preventDefault();
-
     if (document.getElementById("nombreUsuario").value == "") {
         document.getElementById("nombreUsuario").style.backgroundColor = "#E3F553";
         return
@@ -57,18 +53,15 @@ formUsuario.addEventListener("click", (e) => {
         document.getElementById("contraseniaUsuario").style.backgroundColor = "#E3F553";
         return
     }
-
     crearUsuario()
-
     swal("Registro exitoso", "Tu registro fue almacenado correctamente", "success");
 });
 
 
-//hacer función para inicio de sesion, que tome el ususario y la clave desde el storage. Y que habilite la carga de expnuevo.
 
-
-let contador = 0;
-
+/*defino una función para ver si existe el usuario ingresado en el form de inicio de sesion. Para chequear
+ recorro el array de usuarios que está en el localStorage. Si existe, le cambio el valor a la variable "contador" 
+ para poder leer luego que la sesión fue iniciada. Luego hago lo mismo con las contraseñas.*/
 function validoUsuario() {
     let existe = false;
     for (i = 0; i < arrayUsuarios.length; i++) {
@@ -100,17 +93,17 @@ function validoContrasenia() {
     return claveCorrecta;
 }
 
+/*Llamo al botón de inicio de sesión para iniciarla, luego de la validación anterior. 
+ Si contador vale 2, se inicia sesión y se guarda la variable "sesionIniciada" con valor 1 en el
+ sesionStorage. Esto luego va a ser requisito para poder crear nuevos experimentos.*/
 botonSesion.addEventListener("click", (e) => {
     e.preventDefault();
-
     validoUsuario();
     validoContrasenia();
 
     if (contador >= 2) {
         swal("Sesión iniciada!", "Bienvenid@", "success");
         sesionIniciada = 1;
-
         sessionStorage.setItem("inicioSesion", sesionIniciada)
     }
 });
-

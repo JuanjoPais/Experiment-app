@@ -1,25 +1,19 @@
 const equipos = ["Tissue", "Stem cells", "Ecología"];
-
 const listadoReactivosComplementarios = [];
-
-
 const botonNuevoExp = document.getElementById("botonNuevoExp");
-
 let colorElegido = document.getElementById("colorInput");
 let fichaExp = document.getElementById("fichaExp");
 let fechaInicial = new Date(document.getElementById("fechaInicio").value).getTime();
 let fechaFinal = new Date(document.getElementById("fechaFin").value);
-let stockMedioCultivoMl = JSON.parse(localStorage.getItem("stock medio cultivo")) || 1000;
-
-stockMedioCultivoMl == 0 &&  actualizarMedioCultivo();
-
 let cantidadReactivos = document.getElementById("cantidadReactivos");
 let btnDesplegarReactivos = document.getElementById("desplegarReactivos");
 let matcheoUsuario = 0;
 
+let stockMedioCultivoMl = JSON.parse(localStorage.getItem("stock medio cultivo")) || 1000;
+stockMedioCultivoMl == 0 && actualizarMedioCultivo();
 
 
-
+//Creo la clase que crea los nuevos experimentos, y que modifica el stock del medio de cultivo disponible.
 
 class Experimento {
     constructor(nombreExp, equipo, usuario, descripcion, fechaInicio, fechaFin, consumoMedioCultivo, color, reactivosExtra) {
@@ -36,12 +30,12 @@ class Experimento {
     restarMedioCultivo() {
         stockMedioCultivoMl = stockMedioCultivoMl - this.consumoMedioCultivo;
         swal(`Se actualizó el stock del medio de cultivo. Ahora quedan ${stockMedioCultivoMl} ml.`);
-      
         localStorage.setItem("stock medio cultivo", JSON.stringify(stockMedioCultivoMl))
         return stockMedioCultivoMl;
     }
 }
 
+//dentro del experimento necesité el uso de otra clase para incorporar reactivos adicionales.
 class ReactivosComplementarios {
     constructor(reactivo, marcaYLote, cantidad) {
         this.reactivo = reactivo;
@@ -49,6 +43,11 @@ class ReactivosComplementarios {
         this.cantidad = cantidad;
     }
 }
+
+
+/*Defino la funcion que crea los experimentos. Toma los datos del DOM, crea el expe, modifica el stock del medio de cultivo
+sube el expe al localStorage y lo suma al resto ya creados. Y por último carga toda esta info en una ficha que 
+se genera al lado del formulario a modo de resumen.*/
 
 const crearExperimento = () => {
     let nombreExp = document.getElementById("nombreExp").value;
@@ -83,9 +82,19 @@ const crearExperimento = () => {
     return experimento;
 }
 
+//Defino una función que voy a usar para validar. 
 
+function chequeoUsuariosExistentes() {
+    for (let i = 0; i < arrayUsuarios.length; i++) {
+        if (arrayUsuarios[i].nombreUsuario == document.getElementById("usuario").value) {
+            matcheoUsuario++
+        }
+    }
+    return matcheoUsuario;
+}
 
-
+/*Hago la validación del formulario. Si algún dato ingreado es erróneo, se pinta el casillero de otro color,
+o bien, salta un alert para avisar y corregir. Si todo está ok, se llama a la función que crea el expe.*/
 
 botonNuevoExp.addEventListener("click", (e) => {
     e.preventDefault();
@@ -98,22 +107,15 @@ botonNuevoExp.addEventListener("click", (e) => {
         document.getElementById("equipoExp").style.backgroundColor = "#E3F553";
         return
     }
-    function chequeoUsuariosExistentes (){
-        for (let i=0; i<arrayUsuarios.length; i++){
-            if(arrayUsuarios[i].nombreUsuario == document.getElementById("usuario").value){
-                matcheoUsuario++
-            }            
-        }            
-        return matcheoUsuario;    
-    }
+
     chequeoUsuariosExistentes();
 
-    if(matcheoUsuario==0){
+    if (matcheoUsuario == 0) {
         document.getElementById("usuario").style.backgroundColor = "#E3F553";
         swal("Ese nombre de usuario no está registrado. Corregilo o iniciá sesión primero.")
         return
     }
-    if(JSON.parse(sessionStorage.getItem("inicioSesion"))!=1){
+    if (JSON.parse(sessionStorage.getItem("inicioSesion")) != 1) {
         document.getElementById("usuario").style.backgroundColor = "#E3F553";
         swal("El usuario es correcto pero tu sesión no está iniciada. Iniciá sesión en Log In.")
         return
@@ -134,49 +136,53 @@ botonNuevoExp.addEventListener("click", (e) => {
     document.getElementById("fichaExp").classList.add("visible");
 });
 
-//creo un div con un reactivo extra
 
-// REVISAR ESTO. TENGO QUE CAMBIAR LA FORMA DE GENERAR LOS BOTONES
+
+/*Con la siguiente función quiero mostrar un nuevo div que permita el ingreso de reactivos extras. 
+como la cantidad de reactivos es variable, cada ID generado también lo es y esto lo uso para poder 
+darle identidad propia a cada input y luego poder recuperar los datos individualmente.
+Con cada set de datos ingresados, se genera un nuevo objeto que luego se agrega a un array ( que está vinculado al array general de experimentos.)
+Finalmente, esos datos se inyectan en la ficha del experimento creado.*/
 
 const mostrarSumarYCargarReactivos = () => {
-    for (let i=0; i<cantidadReactivos.value; i++){
-    let divNuevoReactivo = document.createElement("div");
-    divNuevoReactivo.innerHTML = `          
+    for (let i = 0; i < cantidadReactivos.value; i++) {
+        let divNuevoReactivo = document.createElement("div");
+        divNuevoReactivo.innerHTML = `          
           <input id="reactivo${i}" class ="form-control m-1 border border-dark" type="text" placeholder="Reactivo"> 
           <input id="marcaYLote${i}" class ="form-control m-1 border border-dark" type="text" type="text" placeholder="Marca y número de lote"> 
           <input id="cantidad${i}" class ="form-control m-1 border border-dark" type="number" min="0" placeholder="Cantidad a utlizar"> 
           <button  id="cargarReactivo${i}" class ="m-1 btn btn-dark">Cargar Reactivo</button>         
           `;
 
-    document.getElementById("nuevoReactivo").append(divNuevoReactivo);
+        document.getElementById("nuevoReactivo").append(divNuevoReactivo);
 
-    const formCargarReactivoComplementario = document.getElementById(`cargarReactivo${i}`);
+        const formCargarReactivoComplementario = document.getElementById(`cargarReactivo${i}`);
 
-    formCargarReactivoComplementario.addEventListener("click", (e) => {
-        e.preventDefault();
-        let reactivo = document.getElementById(`reactivo${i}`).value;
-        let marcaYLote = document.getElementById(`marcaYLote${i}`).value;
-        let cantidad = parseFloat(document.getElementById(`cantidad${i}`).value);
-    
-        const nuevoReactivo = new ReactivosComplementarios(reactivo, marcaYLote, cantidad);
-    
-        listadoReactivosComplementarios.push(nuevoReactivo);
-    
-        document.getElementById("divReactivosExtra").innerHTML += `${listadoReactivosComplementarios[i].reactivo}, marca y lote: ${listadoReactivosComplementarios[i].marcaYLote}, volumen ${listadoReactivosComplementarios[i].cantidad} ml.<br>`;
-       
-        return listadoReactivosComplementarios;;
-    })};
-    
+        formCargarReactivoComplementario.addEventListener("click", (e) => {
+            e.preventDefault();
+            let reactivo = document.getElementById(`reactivo${i}`).value;
+            let marcaYLote = document.getElementById(`marcaYLote${i}`).value;
+            let cantidad = parseFloat(document.getElementById(`cantidad${i}`).value);
 
+            const nuevoReactivo = new ReactivosComplementarios(reactivo, marcaYLote, cantidad);
+
+            listadoReactivosComplementarios.push(nuevoReactivo);
+
+            document.getElementById("divReactivosExtra").innerHTML += `
+            ${listadoReactivosComplementarios[i].reactivo}, marca y lote: ${listadoReactivosComplementarios[i].marcaYLote}, volumen ${listadoReactivosComplementarios[i].cantidad} ml.<br>`;
+
+            return listadoReactivosComplementarios;;
+        })
+    };
 };
 
-btnDesplegarReactivos.addEventListener("click", (e)=>{
+btnDesplegarReactivos.addEventListener("click", (e) => {
     e.preventDefault();
-    mostrarSumarYCargarReactivos()});
+    mostrarSumarYCargarReactivos()
+});
 
 // doy color al borde del expe creado
 
 colorElegido.addEventListener("input", () => {
     fichaExp.style.borderColor = colorElegido.value
 });
-

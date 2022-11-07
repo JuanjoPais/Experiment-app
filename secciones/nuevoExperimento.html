@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuevo Experimento</title>
+  <title>Lab App - Nuevo Experimento</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="../estilos/estilos.css">
+  <link rel="stylesheet" href="../estilos/style.css">
 </head>
 
 <body>
@@ -16,20 +16,19 @@
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark ">
     <div class="container-fluid ">
       <a class="navbar-brand" href="#"><img src="../images/microscopio.png" alt=""></a>
-      
       <div class="collapse navbar-collapse show menuNav" id="navbarDark">
         <ul class="navbar-nav menuNav ">
           <li class="nav-item">
-            <a class="nav-link fs-5" aria-current="page" href="../index.html">Home</a>
+            <a class="nav-link fs-3" aria-current="page" href="../index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="./nuevoExperimento.html">Nuevo Experimento</a>
+            <a class="nav-link fs-3" href="./nuevoExperimento.html">Nuevo Experimento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="./misExperimentos.html">Mis Experimentos</a>
+            <a class="nav-link fs-3" href="./misExperimentos.html">Mis Experimentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="./logIn.html">Log In</a>
+            <a class="nav-link fs-3" href="./logIn.html">Log In</a>
           </li>
         </ul>
 
@@ -74,14 +73,9 @@
         </div>
 
 
-
-
-
         <input id="consumoMedioCultivo" type="number" min="0"
-        class="form-control m-2 bd-highlight d-inline-block border border-dark"
-        placeholder="Cuánto medio de cultivo vas a consumir? Ingresá los ml sin unidad.">
-
-
+          class="form-control m-2 bd-highlight d-inline-block border border-dark"
+          placeholder="Cuánto medio de cultivo vas a consumir? Ingresá los ml sin unidad.">
 
         <div class=" bd-highlight d-inline-block d-flex justify-content-evenly align-items-end mb-2">
           <div class="d-flex flex-row bd-highlight align-items-center ">
@@ -90,22 +84,19 @@
               title="Choose your color">
           </div>
         </div>
-        <div class="d-flex flex-row" >
-          <input id="cantidadReactivos" class="form-control m-2 bd-highlight d-inline-block border border-dark" type="number"
-            placeholder="Sumás reactivos? Ingresá la cantidad" min="0">
-            <button id="desplegarReactivos" class="btn btn-secondary ">Agregar reactivos</button>
+        <div class="d-flex flex-row">
+          <input id="cantidadReactivos" class="form-control m-2 bd-highlight d-inline-block border border-dark"
+            type="number" placeholder="Sumás reactivos? Ingresá la cantidad" min="0">
+          <button id="desplegarReactivos" class="btn btn-secondary ">Agregar reactivos</button>
         </div>
-
-
-
 
         <div id="nuevoReactivo" class="mx-2">
 
         </div>
 
         <div class="d-flex justify-content-between bd-highlight mt-4 mb-2 p-3">
-           <button type="submit" class="btn btn-dark ">Refrescar formulario</button>
-           <button id="botonNuevoExp" type="submit" class="btn btn-dark ">Enviar Experimento</button>        
+          <button type="submit" class="btn btn-dark ">Refrescar formulario</button>
+          <button id="botonNuevoExp" type="submit" class="btn btn-dark ">Enviar Experimento</button>
         </div>
       </div>
 
@@ -146,9 +137,10 @@
 
 
   <footer>
-
     <p class="textoFooter">LabApp 2022</p>
   </footer>
+
+
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../javascript/main.js"></script>
   <script src="../javascript/jsNuevoEXP.js"></script>

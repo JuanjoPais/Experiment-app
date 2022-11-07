@@ -1,0 +1,40 @@
+@media (max-width:600px) {
+    .navbar>.container-fluid{
+        justify-content: center;
+    }
+    .menuNav{
+        align-items: center;
+    }
+    .cita{
+        font-size: 150%;
+    }
+   
+   .mainMisExp{
+    grid-template-columns: 40% 60%;
+   }
+   .recuadroIndex{    
+    width: 100%;       
+    }
+    .fichasExp{
+    grid-template-columns: 100%;
+    }
+    .tituloFicha{
+        font-size: medium;
+    }
+    .contenedorArribaFicha{
+        font-size: small;
+    }
+    .descripcionFicha{
+        font-size: small;
+    }
+    .titulosExtras{
+        font-size: x-small;
+    }
+    .datosExtras{
+        font-size: x-small;
+    }
+    .divCanvas{      
+        width:  -webkit-fill-available;
+        margin-top: 25%;
+    }
+}

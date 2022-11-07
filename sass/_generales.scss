@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    display: block;
+    margin-bottom: 40px;
+    font-size: 250%;
+    border-bottom: double black 2px;
+    font-family: 'Secular One', sans-serif;
+}
+
+body{
+    
+    background-image: url(../images/fondoBlanco.jpg);
+    background-size: cover; 
+    display: grid;
+    overflow-x: hidden;
+   
+}
+
+main{    
+    display: grid;
+    justify-items: auto;        
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;    
+}
+
+.error{
+    color: red;
+    font-weight: bolder;
+}
+
+.container-fluid{
+    width: 100%;
+}

@@ -1,0 +1,83 @@
+video {
+    position: fixed;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.mainIndex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contenedorDivIndex {
+    display: flex;
+    justify-content: flex-end;
+    margin: 3%;
+    width: 50%;
+    height: 40%;
+    align-self: flex-start;
+}
+
+.recuadroIndex {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: max-content;
+    padding: 30px;
+    background-image: url(../images/17545.jpg);
+    background-size: contain;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 1px black;
+    border-radius: 5%;
+}
+
+.contenedorCitas {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+    height: max-content;
+    justify-content: space-between;
+}
+
+.cita {
+    font-size: 250%;
+    font-style: italic;
+    padding: 2% 2% 0 6%;
+    font-family: 'Satisfy', cursive;
+    font-weight: normal;
+}
+
+.autor {
+    text-align: right;
+    padding-top: 2%;
+    padding-right: 2%;
+    font-size: 100%;
+    font-weight: 500;
+}
+
+.comillas {
+    margin-left: 93%;
+    padding: 0 2% 0 0;
+}
+
+.invertida {
+    transform: scaleX(-1);
+    width: 6%;
+    margin: 2px;
+}
+
+.btnCita {
+    margin-top: 5%;  
+    border: solid black 1px;
+    border-radius: 100%;
+    padding: 1%;
+    cursor: pointer;
+}
+

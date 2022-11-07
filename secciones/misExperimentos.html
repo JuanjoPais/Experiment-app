@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis experimentos</title>
+  <title>Lab App - Mis experimentos</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="../estilos/estilos.css">
+  <link rel="stylesheet" href="../estilos/style.css">
 </head>
 
 <body>
@@ -17,20 +17,19 @@
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark ">
     <div class="container-fluid ">
       <a class="navbar-brand" href="#"><img src="../images/microscopio.png" alt=""></a>
-      
       <div class="collapse navbar-collapse show menuNav" id="navbarDark">
         <ul class="navbar-nav menuNav ">
           <li class="nav-item">
-            <a class="nav-link fs-5" aria-current="page" href="../index.html">Home</a>
+            <a class="nav-link fs-3" aria-current="page" href="../index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="./nuevoExperimento.html">Nuevo Experimento</a>
+            <a class="nav-link fs-3" href="./nuevoExperimento.html">Nuevo Experimento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="./misExperimentos.html">Mis Experimentos</a>
+            <a class="nav-link fs-3" href="./misExperimentos.html">Mis Experimentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="./logIn.html">Log In</a>
+            <a class="nav-link fs-3" href="./logIn.html">Log In</a>
           </li>
         </ul>
 
@@ -40,8 +39,6 @@
 
   <main class="mainMisExp">
     <div class="filtros">
-
-
       <div class="filtroEquipos">
         <p>Seleccionar por equipo</p>
         <div class="botonesEquipos">
@@ -50,26 +47,17 @@
           <button id="botonEcologia" class="btn btn-dark botonesMisExp">Ecología</button>
           <button id="botonTodos" class="btn btn-dark botonesMisExp">Todos</button>
           <button id="botonTorta" class="btn btn-dark botonesMisExp">Ver proporciones</button>
-
         </div>
       </div>
-     
-       
-
 
       <div class="filtroEquipos">
         <p>Seleccionar por usuario</p>
         <div class="botonesEquipos">
           <select aria-label="Default select" class="btn btn-dark botonesMisExp" name="" id="opcionesDeUsuarios">
-            
-            <option  id="todosUsuarios" value="todos">Todos</option>
-            
+            <option id="todosUsuarios" value="todos">Todos</option>
           </select>
-
         </div>
       </div>
-
-      
 
       <div class="filtroEquipos">
         <p>Seleccionar por fechas</p>
@@ -84,23 +72,18 @@
     </div>
 
 
-
     <div class="fichasExp" id="contenedorExpes">
-     
-    
-
 
 
     </div>
-    
+
   </main>
-
-
-
 
   <footer>
     <p class="textoFooter">LabApp 2022</p>
   </footer>
+
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../javascript/main.js"></script>

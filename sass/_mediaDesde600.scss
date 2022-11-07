@@ -1,0 +1,28 @@
+@media (min-width:600px) {
+
+    .fichasExp{
+            grid-template-columns: 100%;
+        }
+    .tituloFicha{
+            font-size: x-large;
+        }
+    .contenedorArribaFicha{
+            font-size: large;
+        }
+    .descripcionFicha{
+            font-size: large;
+        }
+    .titulosExtras{
+            font-size: medium;
+        }
+    .datosExtras{
+            font-size: medium;
+        }
+    .recuadroIndex{    
+        width: 100%;       
+    }
+    .menuNav{      
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

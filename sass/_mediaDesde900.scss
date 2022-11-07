@@ -1,0 +1,30 @@
+@media (min-width:900px) {
+    .recuadroIndex{    
+        width: 70%;       
+    }
+    .menuNav{
+        display: contents;     
+    }
+    .navbar>.container-fluid{
+        justify-content: space-around;
+    }
+    .fichasExp{
+        grid-template-columns: 50% 50%;
+    }
+    .tituloFicha{
+        font-size: xx-large;
+    }
+    .contenedorArribaFicha{
+        font-size: x-large;
+    }
+    .descripcionFicha{
+        font-size: x-large;
+    }
+    .titulosExtras{
+        font-size: large;
+    }
+    .datosExtras{
+        font-size: large;
+    } 
+
+}
