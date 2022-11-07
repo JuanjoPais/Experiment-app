@@ -95,7 +95,7 @@ function validoContrasenia() {
 
 /*Esta funcion "incluirBtnCerrar" la creo para que me genere un botón para cerrar sesión luego de iniciarla*/
 
- const incluirBtnCerrar = ()=>{
+const incluirBtnCerrar = () => {
     if (sessionStorage.getItem("inicioSesion") == 1) {
         let btnCerrarSesion = document.createElement("div");
         btnCerrarSesion.innerHTML = `
@@ -103,7 +103,7 @@ function validoContrasenia() {
         formInicioSesion.append(btnCerrarSesion);
         btnCerrarSesion.setAttribute("id", "sacarBotonCerrar");
     };
- }
+}
 
 //En este evento se da el inicio de sesión si el usuario y la clave son correctas. Y luego se llama a la funcion que crea el botón para cerrar sesión.
 botonSesion.addEventListener("click", (e) => {
@@ -116,9 +116,8 @@ botonSesion.addEventListener("click", (e) => {
         sesionIniciada = 1;
         sessionStorage.setItem("inicioSesion", sesionIniciada)
     }
-    incluirBtnCerrar();   
-    }
-);
+    incluirBtnCerrar();
+});
 
 /* Una vez que está la sesión inciada y existe el botón de cerrar sesión, creo un evento para que la sesión se cierre
 y reinicio el valor almacenado en el session.Storage.  */
