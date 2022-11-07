@@ -4,9 +4,9 @@ let botonSesion = document.getElementById("botonInicioSesion");
 let sesionIniciada = 0;
 let existe;
 let claveCorrecta;
-
 let claveUsuarioSesion = document.getElementById("constraseniaUsuarioSesion").value;
 let contador = 0;
+let formInicioSesion = document.getElementById("formInicioSesion");
 
 
 //defino constructor de usuarios
@@ -93,9 +93,19 @@ function validoContrasenia() {
     return claveCorrecta;
 }
 
-/*Llamo al botón de inicio de sesión para iniciarla, luego de la validación anterior. 
- Si contador vale 2, se inicia sesión y se guarda la variable "sesionIniciada" con valor 1 en el
- sesionStorage. Esto luego va a ser requisito para poder crear nuevos experimentos.*/
+/*Esta funcion "incluirBtnCerrar" la creo para que me genere un botón para cerrar sesión luego de iniciarla*/
+
+ const incluirBtnCerrar = ()=>{
+    if (sessionStorage.getItem("inicioSesion") == 1) {
+        let btnCerrarSesion = document.createElement("div");
+        btnCerrarSesion.innerHTML = `
+                        <button id="btnCerrar" class= "form-control m-3 bd-highlight d-inline-block border border-dark btn btn-dark">Doble click para cerrar sesión</button>`;
+        formInicioSesion.append(btnCerrarSesion);
+        btnCerrarSesion.setAttribute("id", "sacarBotonCerrar");
+    };
+ }
+
+//En este evento se da el inicio de sesión si el usuario y la clave son correctas. Y luego se llama a la funcion que crea el botón para cerrar sesión.
 botonSesion.addEventListener("click", (e) => {
     e.preventDefault();
     validoUsuario();
@@ -106,4 +116,22 @@ botonSesion.addEventListener("click", (e) => {
         sesionIniciada = 1;
         sessionStorage.setItem("inicioSesion", sesionIniciada)
     }
-});
+    incluirBtnCerrar();   
+    }
+);
+
+/* Una vez que está la sesión inciada y existe el botón de cerrar sesión, creo un evento para que la sesión se cierre
+y reinicio el valor almacenado en el session.Storage.  */
+const cerrarSesion = () => {
+    incluirBtnCerrar();
+    if (sessionStorage.getItem("inicioSesion") == 1) {
+        document.getElementById("btnCerrar").addEventListener("click", (e) => {
+            e.preventDefault();
+            sesionIniciada = 0;
+            sessionStorage.setItem("inicioSesion", sesionIniciada);
+            formInicioSesion.removeChild(document.getElementById("sacarBotonCerrar"));
+            swal("Cerraste la sesión!", "Hasta la vista, baby", "success");
+        })
+    }
+}
+cerrarSesion()
